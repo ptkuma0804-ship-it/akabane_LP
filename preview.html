@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頚胸郭LP プレビュー（PC＋スマホ同時）</title>
+<style>*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;background:#1a1a1f;color:#e8e6e0;padding:20px;}
+.bar{max-width:1500px;margin:0 auto 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.bar h1{font-size:1.05rem;color:#C9A227;font-weight:700;}.bar .note{font-size:.82rem;color:#9a958a;}
+.seg{display:inline-flex;border:1px solid #3a3a42;border-radius:999px;overflow:hidden;margin-left:auto;}
+.seg button{border:0;background:#222;color:#9a958a;padding:8px 18px;font-size:.85rem;font-weight:700;cursor:pointer;}
+.seg button.active{background:#C9A227;color:#1a1a1f;}
+.stage{max-width:1500px;margin:0 auto;display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+.col{display:flex;flex-direction:column;align-items:center;gap:10px;}.col .cap{font-size:.8rem;color:#9a958a;letter-spacing:.04em;}
+.desk{width:min(900px,92vw);}.desk iframe{width:100%;height:80vh;border:1px solid #3a3a42;border-radius:8px;background:#0A0A0C;}
+.phone{width:390px;max-width:92vw;background:#111;border-radius:34px;padding:12px;border:1px solid #3a3a42;}
+.phone .screen{background:#0A0A0C;border-radius:24px;overflow:hidden;position:relative;height:78vh;}
+.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:130px;height:20px;background:#111;border-radius:0 0 14px 14px;z-index:5;}
+.phone iframe{width:390px;height:100%;border:0;display:block;}.hidden{display:none;}
+@media(max-width:1300px){.stage{flex-direction:column;align-items:center;}}</style></head>
+<body><div class="bar"><h1>頚部・胸郭 対面実技研修 LP — プレビュー</h1>
+<span class="note">※ 申込URL・動画IDはデモ値。講師写真は埋め込み済み。実機相当の折り返しで表示しています。</span>
+<span class="seg"><button id="bBoth" class="active" onclick="setView('both')">PC＋スマホ</button>
+<button id="bDesk" onclick="setView('desk')">PCのみ</button><button id="bPhone" onclick="setView('phone')">スマホのみ</button></span></div>
+<div class="stage"><div class="col" id="colDesk"><span class="cap">🖥 デスクトップ表示</span>
+<div class="desk"><iframe title="desktop" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;頚部・胸郭の可動域を、一生自分の手で｜赤羽根良和 対面実技研修&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;頚部〜胸椎・胸郭の可動域制限を、筋ではなく関節操作とハンドリングで解く対面実技研修。赤羽根良和が定員12名に直接指導。受講後も技術が定着するまで伴走します。&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --ink:#0A0A0C; --char:#15151A; --char2:#1C1C22;
+    --gold:#C9A227; --gold-bright:#E8C84B; --gold-deep:#8A6E1C;
+    /* 赤は「問題・痛み・警告」専用。黒地になじむ落ち着いた深紅に統一 */
+    --crimson:#8E2433; --crimson-glow:#B23A48;
+    --paper:#EDE6D6; --paper-dim:#A9A395; --line:#2A2A30;
+    --mincho:&quot;Shippori Mincho B1&quot;,serif;
+    --garamond:&quot;Cormorant Garamond&quot;,serif;
+    --gothic:&quot;Zen Kaku Gothic New&quot;,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:var(--gothic); font-weight:400; line-height:1.95;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* 背景の微細な金の粒子テクスチャ（重厚感） */
+  body::before{
+    content:&quot;&quot;; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,162,39,0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 110%, rgba(201,162,39,0.05), transparent 60%);
+  }
+  .wrap{position:relative; z-index:1; max-width:760px; margin:0 auto; padding:0 22px;}
+  section{position:relative; z-index:1;}
+
+  /* タイポ基礎 */
+  h1,h2,h3,.disp{font-family:var(--mincho); font-weight:700; line-height:1.45; letter-spacing:0.02em;}
+  .eyebrow{font-family:var(--garamond); font-weight:500; letter-spacing:0.32em; text-transform:uppercase;
+    font-size:0.82rem; color:var(--gold); }
+  .kanji-num{font-family:var(--mincho); color:var(--gold); font-weight:600;}
+  strong{color:var(--gold-bright); font-weight:700;}
+  .crim{color:var(--gold-bright); font-weight:700;}
+  .mark{color:var(--gold-bright); font-weight:700; box-shadow:inset 0 -0.55em 0 rgba(201,162,39,0.16);}
+
+  /* 金の細い区切り */
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--gold-deep),var(--gold),var(--gold-deep),transparent);
+    margin:0 auto; opacity:0.0; transform:scaleX(0.3); transition:opacity 1s ease, transform 1.4s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in .rule{opacity:0.7; transform:scaleX(1);}
+
+  /* リビール */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform 1.1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.12s;} .reveal.d2{transition-delay:.24s;} .reveal.d3{transition-delay:.36s;} .reveal.d4{transition-delay:.48s;}
+
+  /* ===== FV ===== */
+  .hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:96px 22px 64px; position:relative;}
+  .hero .eyebrow{margin-bottom:30px; opacity:0; animation:fadeIn 1.2s ease .3s forwards;}
+  .hero-q{font-family:var(--mincho); font-weight:500; font-size:clamp(0.98rem,3.6vw,1.18rem);
+    color:var(--crimson-glow); letter-spacing:0.04em; margin-bottom:22px; line-height:1.8;
+    opacity:0; animation:fadeUp 1s ease .6s forwards;}
+  .hero-title{font-size:clamp(2.0rem,8.2vw,3.5rem); font-weight:800; line-height:1.4; letter-spacing:0.03em;
+    margin-bottom:30px;}
+  .hero-title .ln{display:block; overflow:hidden;}
+  .hero-title .ln span{display:inline-block; transform:translateY(110%); opacity:0;
+    animation:riseIn 1.1s cubic-bezier(.16,.84,.3,1) forwards;}
+  .hero-title .ln:nth-child(1) span{animation-delay:.85s;}
+  .hero-title .ln:nth-child(2) span{animation-delay:1.0s;}
+  .hero-title .ln:nth-child(3) span{animation-delay:1.15s;}
+  .gold-ink{color:var(--gold-bright);
+    text-shadow:0 0 24px rgba(232,200,75,0.28);}
+  .crim-ink{color:var(--crimson-glow);}
+  .hero-sub{max-width:560px; font-size:clamp(0.95rem,3.4vw,1.06rem); color:var(--paper-dim);
+    line-height:2.05; margin-bottom:38px; opacity:0; animation:fadeUp 1s ease 1.5s forwards;}
+  .hero-sub b{color:var(--paper); font-weight:500;}
+
+  /* CTA：ポジティブ＝ゴールドに一本化。地のCTAは金枠、主役CTA(.crim)は金塗り */
+  .cta{display:inline-block; font-family:var(--gothic); font-weight:700; font-size:1.02rem;
+    letter-spacing:0.08em; color:var(--gold-bright); text-decoration:none; padding:18px 50px; border-radius:2px;
+    background:linear-gradient(180deg,rgba(201,162,39,0.14),rgba(201,162,39,0.04)); position:relative;
+    border:1px solid var(--gold); transition:transform .35s ease, box-shadow .35s ease, background .35s ease, color .35s ease;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(232,200,75,0.15);}
+  .cta:hover{transform:translateY(-2px); background:linear-gradient(180deg,rgba(201,162,39,0.24),rgba(201,162,39,0.08));
+    box-shadow:0 12px 36px rgba(201,162,39,0.22), inset 0 1px 0 rgba(232,200,75,0.25);}
+  .cta:focus-visible{outline:3px solid var(--gold-bright); outline-offset:3px;}
+  /* 主役CTA：金の塗り＋黒文字（黒地に最も映える・最も押させる） */
+  .cta.crim{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#1A1206;
+    border-color:var(--gold-bright); box-shadow:0 8px 30px rgba(201,162,39,0.28), inset 0 1px 0 rgba(255,255,255,0.4);}
+  .cta.crim:hover{background:linear-gradient(180deg,#F2D766,var(--gold-bright)); color:#1A1206;
+    box-shadow:0 14px 44px rgba(232,200,75,0.45), inset 0 1px 0 rgba(255,255,255,0.5);}
+  .cta-note{margin-top:16px; font-size:0.82rem; color:var(--paper-dim); letter-spacing:0.06em;}
+  .cta-hero{opacity:0; animation:fadeUp 1s ease 1.9s forwards;}
+
+  .scroll-hint{position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    font-family:var(--garamond); font-size:0.72rem; letter-spacing:0.3em; color:var(--paper-dim);
+    opacity:0; animation:fadeIn 1.4s ease 2.4s forwards; text-transform:uppercase;}
+  .scroll-hint .bar{display:block; width:1px; height:42px; margin:10px auto 0;
+    background:linear-gradient(var(--gold),transparent); }
+
+  /* セクション共通 */
+  .sec{padding:84px 0;}
+  .sec-head{text-align:center; margin-bottom:48px;}
+  .sec-head .eyebrow{display:block; margin-bottom:16px;}
+  .sec-title{font-size:clamp(1.5rem,5.6vw,2.2rem); font-weight:700; line-height:1.5; letter-spacing:0.02em;}
+
+  /* 悩みの声 */
+  .voices-pain{max-width:600px; margin:0 auto;}
+  .pain{font-family:var(--mincho); font-size:clamp(1.05rem,4vw,1.3rem); color:var(--paper);
+    line-height:1.95; padding:22px 0 22px 28px; border-left:2px solid var(--crimson);
+    margin-bottom:18px; position:relative; font-weight:500;}
+  .pain::before{content:&quot;「&quot;; position:absolute; left:6px; top:14px; color:var(--crimson-glow); font-family:var(--mincho); font-size:1.4em;}
+  .lead{font-size:1.04rem; line-height:2.1; color:var(--paper-dim); text-align:center; max-width:620px; margin:40px auto 0;}
+  .lead b{color:var(--paper);}
+
+  /* 12名カード（ゴールド枠の格） */
+  .feature{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:40px 34px 44px; max-width:620px; margin:0 auto; position:relative; overflow:hidden;}
+  .feature::before{content:&quot;&quot;; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 80% -10%, rgba(201,162,39,0.12), transparent 55%);}
+  .feature-head{position:relative; text-align:center; margin-bottom:26px!important;}
+  .feature-eyebrow{display:block; font-family:var(--garamond); letter-spacing:0.28em; font-size:0.74rem;
+    color:var(--gold); text-transform:uppercase; margin-bottom:14px;}
+  .feature-title{display:block; font-family:var(--mincho); font-weight:700; color:var(--paper);
+    font-size:clamp(1.4rem,5.4vw,2rem); line-height:1.55; letter-spacing:0.02em;}
+  .feature p{position:relative; line-height:2.05; margin-bottom:16px;}
+  .feature p:last-child{margin-bottom:0;}
+  .twelve{font-family:var(--mincho); font-size:clamp(2.6rem,11vw,4rem); font-weight:800; color:var(--gold-bright);
+    line-height:1; display:inline-block; vertical-align:-0.08em; margin:0 6px;
+    text-shadow:0 0 30px rgba(232,200,75,0.35);}
+
+  @keyframes fadeIn{to{opacity:1;}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes riseIn{to{transform:none;opacity:1;}}
+
+  /* ===== 受講者の声 ===== */
+  .vcard{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--line);
+    border-left:2px solid var(--gold-deep); border-radius:4px; padding:26px 28px; margin-bottom:18px;}
+  .vmeta{font-family:var(--garamond); font-size:0.95rem; letter-spacing:0.04em; color:var(--gold); margin-bottom:14px;}
+  .vmeta span{color:var(--paper-dim);}
+  .vbody{line-height:1.95; margin-bottom:10px;}
+  .vbody:last-child{margin-bottom:0;}
+  .vlabel{display:inline-block; font-family:var(--mincho); font-size:0.82rem; color:var(--crimson-glow);
+    border:1px solid var(--crimson); border-radius:2px; padding:1px 10px; margin-right:10px; vertical-align:0.08em;}
+  .vlabel.gold{color:var(--gold-bright); border-color:var(--gold-deep);}
+
+  /* ===== Transformation（最大の山場） ===== */
+  .sec-title.big{font-size:clamp(1.9rem,7vw,2.9rem); line-height:1.4;}
+  .sec-sub{font-family:var(--mincho); font-weight:500; color:var(--paper-dim);
+    font-size:clamp(0.98rem,3.6vw,1.18rem); line-height:1.9; margin-top:20px;}
+  .transform-sec{background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,162,39,0.06), transparent 70%);}
+  .trans{max-width:560px; margin:0 auto 40px;}
+  .trans-before{background:#101013; border:1px solid var(--line); border-radius:4px;
+    padding:20px 24px; text-align:center; opacity:0.62; filter:saturate(0.5);}
+  .trans-before p{font-family:var(--mincho); color:var(--paper-dim); font-size:1.02rem; line-height:1.75;}
+  .trans-after{background:linear-gradient(165deg,rgba(201,162,39,0.18),rgba(201,162,39,0.05),var(--char));
+    border:1.5px solid var(--gold); border-radius:4px; padding:26px 26px; text-align:center;
+    box-shadow:0 10px 40px rgba(201,162,39,0.12);}
+  .trans-after p{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:clamp(1.1rem,4.4vw,1.4rem); line-height:1.7;}
+  .trans-after p b{color:var(--gold-bright); font-weight:700;}
+  .tlabel{display:inline-block; font-family:var(--garamond); font-size:0.78rem; letter-spacing:0.16em;
+    color:var(--paper-dim); text-transform:uppercase; margin-bottom:10px;}
+  .tlabel.gold{color:var(--gold-bright);}
+  .trans-arrow{text-align:center; line-height:1; padding:8px 0; color:var(--gold);}
+  .trans-arrow span{display:inline-block; font-size:1.5rem; animation:arrowPulse 2.2s ease-in-out infinite;}
+  @keyframes arrowPulse{0%,100%{transform:translateY(0);opacity:0.6;}50%{transform:translateY(4px);opacity:1;}}
+  .trans-close{text-align:center; font-family:var(--mincho); font-weight:700;
+    font-size:clamp(1.3rem,5vw,1.9rem); line-height:1.7; margin-top:8px;}
+  @media (prefers-reduced-motion:reduce){ .trans-arrow span{animation:none;} }
+
+  /* ===== 核心バンド（全幅） ===== */
+  .core-band{padding:88px 0; background:
+    radial-gradient(ellipse 70% 100% at 50% 50%, rgba(201,162,39,0.07), transparent 70%), #08080A;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .core-text{font-family:var(--mincho); font-weight:700; text-align:center;
+    font-size:clamp(1.5rem,5.6vw,2.3rem); line-height:1.75; letter-spacing:0.03em;}
+  .core-text strong{color:var(--gold-bright);}
+
+  /* ===== 動画 ===== */
+  .video-frame{position:relative; width:100%; max-width:620px; margin:0 auto; aspect-ratio:16/9;
+    border:1px solid var(--gold-deep); border-radius:4px; overflow:hidden; background:#000;
+    box-shadow:0 12px 50px rgba(0,0,0,0.6);}
+  .video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+
+  /* ===== 落とし穴 ===== */
+  .pit{display:flex; gap:18px; align-items:flex-start; background:var(--char);
+    border:1px solid var(--line); border-left:2px solid var(--crimson); border-radius:4px;
+    padding:22px 24px; margin-bottom:16px;}
+  .pit-x{font-family:var(--mincho); color:var(--crimson-glow); font-size:1.4rem; line-height:1.4; flex:none;}
+  .pit-h{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:1.05rem; line-height:1.6; margin-bottom:8px;}
+  .pit-b{color:var(--paper-dim); line-height:1.9; font-size:0.96rem;}
+
+  /* ===== 評価戦略ステップ ===== */
+  .steps{list-style:none; max-width:620px; margin:0 auto;}
+  .steps li{display:flex; gap:20px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line);}
+  .steps li:last-child{border-bottom:none;}
+  .step-n{font-family:var(--garamond); font-weight:600; font-size:1.7rem; color:var(--gold-bright); flex:none; width:1.6em; text-align:center; line-height:1.4; letter-spacing:0.02em;}
+  .steps b{color:var(--paper); display:block; margin-bottom:2px;}
+  .steps div{line-height:1.85; color:var(--paper-dim);}
+
+  /* ===== 症例 ===== */
+  .case{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--line);
+    border-radius:4px; padding:24px 26px; margin-bottom:16px;}
+  .case-n{display:inline-block; font-family:var(--mincho); font-size:0.82rem; letter-spacing:0.16em;
+    color:var(--ink); background:linear-gradient(180deg,var(--gold-bright),var(--gold)); padding:3px 14px; border-radius:2px; margin-bottom:14px;}
+  .case-t{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:1.06rem; line-height:1.6; margin-bottom:12px;}
+  .case-l{line-height:1.9; margin-bottom:6px; color:var(--paper-dim); font-size:0.96rem;}
+  .case-l span{font-family:var(--mincho); color:var(--gold); margin-right:10px;}
+
+  /* ===== 得られること ===== */
+  .gains{list-style:none; max-width:640px; margin:0 auto;}
+  .gains li{display:flex; gap:20px; align-items:flex-start; background:linear-gradient(160deg,rgba(201,162,39,0.06),transparent);
+    border:1px solid var(--gold-deep); border-radius:4px; padding:22px 24px; margin-bottom:14px; line-height:1.95;}
+  .gd{font-family:var(--garamond); font-weight:600; font-size:1.6rem; color:var(--gold-bright); flex:none; line-height:1.4; letter-spacing:0.02em; min-width:1.5em;}
+
+  /* ===== 中核＋特典 ===== */
+  .core-incl{background:linear-gradient(160deg,#1F1A12,var(--char)); border:1.5px solid var(--gold); border-radius:4px;
+    padding:32px 30px; margin-bottom:26px; text-align:center; position:relative; overflow:hidden;}
+  .core-incl::before{content:&quot;&quot;; position:absolute; inset:0; background:radial-gradient(circle at 50% -20%, rgba(232,200,75,0.14), transparent 60%); pointer-events:none;}
+  .ci-seal{display:inline-block; font-family:var(--mincho); font-size:0.82rem; letter-spacing:0.14em; color:var(--ink);
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold)); padding:5px 18px; border-radius:2px; margin-bottom:18px; position:relative;}
+  .ci-title{font-family:var(--mincho); font-weight:700; font-size:clamp(1.2rem,4.6vw,1.5rem); color:var(--gold-bright);
+    line-height:1.6; margin-bottom:14px; position:relative;}
+  .ci-body{line-height:2; color:var(--paper); position:relative;}
+  .ci-price{display:block; font-family:var(--garamond); font-style:italic; color:var(--gold); margin-top:12px; letter-spacing:0.06em;}
+  .incl-lead{text-align:center; line-height:2; color:var(--paper-dim); max-width:600px; margin:0 auto 26px;}
+  .incl-lead b{color:var(--paper);}
+  .benefits{max-width:640px; margin:0 auto;}
+  .ben{display:flex; justify-content:space-between; align-items:center; gap:18px;
+    background:var(--char); border:1px solid var(--line); border-radius:4px; padding:18px 22px; margin-bottom:12px;}
+  .ben-main b{display:block; color:var(--paper); font-weight:700; margin-bottom:3px; line-height:1.5;}
+  .ben-main span{font-size:0.86rem; color:var(--paper-dim); line-height:1.6;}
+  .ben-val{font-family:var(--garamond); font-size:1.05rem; color:var(--paper-dim); white-space:nowrap; letter-spacing:0.04em; flex:none;}
+  .ben-val.gold{color:var(--gold-bright); font-weight:600;}
+  .gold-ben{border-color:var(--gold-deep); background:linear-gradient(160deg,rgba(201,162,39,0.08),var(--char));}
+  .incl-foot{text-align:center; line-height:2; color:var(--paper-dim); max-width:600px; margin:26px auto 0;}
+
+  /* ===== 価格 ===== */
+  .price-sec{background:radial-gradient(ellipse 80% 100% at 50% 0%, rgba(201,162,39,0.09), transparent 65%);}
+  .price-card{text-align:center; background:linear-gradient(170deg,var(--char2),#0C0C0F); border:1px solid var(--gold-deep);
+    border-radius:6px; padding:46px 30px; max-width:560px; margin:0 auto;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,162,39,0.15);}
+  .price-lead{font-family:var(--mincho); font-size:clamp(1.05rem,4vw,1.3rem); line-height:1.8; margin-bottom:24px;}
+  .price-figure{font-family:var(--garamond); font-weight:600; font-size:clamp(3rem,14vw,4.6rem); color:var(--gold-bright);
+    line-height:1; letter-spacing:0.02em; margin-bottom:14px; text-shadow:0 0 36px rgba(232,200,75,0.3);}
+  .price-figure .yen{font-size:0.5em; vertical-align:0.32em; margin-right:4px;}
+  .price-figure .tax{font-family:var(--gothic); font-size:0.22em; color:var(--paper-dim); vertical-align:0.5em; margin-left:8px; letter-spacing:0;}
+  .price-note{font-size:0.88rem; color:var(--paper-dim); margin-bottom:30px; line-height:1.8;}
+
+  /* ===== プログラム ===== */
+  .prog-meta{display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px;}
+  .pm{font-family:var(--garamond); font-weight:600; font-size:clamp(1.1rem,4vw,1.35rem); color:var(--gold-bright); letter-spacing:0.04em;}
+  .pm-div{color:var(--gold-deep); font-family:var(--mincho);}
+  .prog-lead{text-align:center; line-height:2.05; color:var(--paper-dim); max-width:600px; margin:0 auto 40px;}
+  .prog-lead b{color:var(--paper);}
+  .prog{list-style:none; max-width:640px; margin:0 auto;}
+  .prog li{display:flex; gap:22px; align-items:flex-start; padding:22px 0; border-bottom:1px solid var(--line);}
+  .prog li:last-child{border-bottom:none;}
+  .pg-n{font-family:var(--garamond); font-size:1.5rem; font-weight:600; color:var(--gold); flex:none; line-height:1.4; letter-spacing:0.04em;}
+  .prog b{display:block; font-family:var(--mincho); color:var(--paper); font-size:1.08rem; margin-bottom:6px; line-height:1.5;}
+  .prog span{color:var(--paper-dim); line-height:1.85; font-size:0.95rem;}
+
+  /* ===== 返金理由 ===== */
+  .honest{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:38px 32px; max-width:620px; margin:0 auto; text-align:center;}
+  .honest-seal{display:inline-block; font-family:var(--mincho); font-size:0.86rem; letter-spacing:0.14em;
+    color:var(--gold-bright); border:1px solid var(--gold-deep); border-radius:2px; padding:5px 18px; margin-bottom:24px;}
+  .honest p{line-height:2.05; color:var(--paper-dim); margin-bottom:16px; text-align:left;}
+  .honest-close{font-family:var(--mincho)!important; font-size:1.2rem; color:var(--paper)!important; text-align:center!important;
+    line-height:1.85; margin:24px 0!important;}
+  .honest-close+.honest-note{margin-bottom:0!important;}
+  .honest-note{font-size:0.84rem; text-align:center!important; color:var(--paper-dim)!important;}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:640px; margin:0 auto;}
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{font-family:var(--mincho); font-weight:600; font-size:1.04rem; color:var(--paper);
+    padding:20px 40px 20px 0; cursor:pointer; position:relative; list-style:none; line-height:1.6;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:&quot;＋&quot;; position:absolute; right:6px; top:18px; color:var(--gold); font-family:var(--mincho); font-size:1.2rem; transition:transform .3s ease;}
+  .faq details[open] summary::after{content:&quot;−&quot;;}
+  .faq summary:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .faq details div{padding:0 0 22px; color:var(--paper-dim); line-height:2; font-size:0.96rem;}
+
+  /* ===== 講師 ===== */
+  .instr{max-width:600px; margin:0 auto; text-align:center;}
+  .instr-photo{width:148px; height:148px; margin:0 auto 24px; border-radius:50%; position:relative;
+    border:2px solid var(--gold); padding:5px; background:linear-gradient(160deg,var(--char2),var(--char));
+    box-shadow:0 0 30px rgba(201,162,39,0.18);}
+  .instr-photo img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; position:relative; z-index:2;}
+  .instr-photo .instr-initial{position:absolute; inset:5px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mincho); font-weight:700; font-size:3rem; color:var(--crimson-glow);
+    background:radial-gradient(circle at 50% 35%, #20202a, var(--ink)); z-index:1;}
+  /* 画像が読めた時はイニシャルを隠す（imgがz-index:2で覆う）。読めない時はnoimgでimg消えイニシャル露出 */
+  .instr-photo.noimg{} 
+  .instr-role{font-family:var(--garamond); font-size:1.05rem; letter-spacing:0.06em; color:var(--gold); margin-bottom:22px;}
+  .instr-body{line-height:2.1; color:var(--paper-dim); margin-bottom:22px; text-align:left;}
+  .instr-stat{font-family:var(--mincho); line-height:1.9; color:var(--paper);}
+
+  /* ===== クロージング ===== */
+  .closing{padding:110px 0; text-align:center; background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,162,39,0.08), transparent 65%); border-top:1px solid var(--line);}
+  .closing-text{font-family:var(--mincho); font-weight:700; font-size:clamp(1.6rem,6vw,2.5rem); line-height:1.7;
+    letter-spacing:0.03em; margin-bottom:44px;}
+  .closing-cta .cta{font-size:1.08rem; padding:20px 56px;}
+
+  /* ===== フッター ===== */
+  .foot{text-align:center; padding:54px 22px; border-top:1px solid var(--line); background:#070709;}
+  .foot-title{font-family:var(--mincho); font-weight:600; color:var(--gold); font-size:1.05rem; line-height:1.7; margin-bottom:10px;}
+  .foot-sub{font-size:0.82rem; color:var(--paper-dim); letter-spacing:0.04em;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important; transition:none!important;}
+    .reveal{opacity:1!important; transform:none!important;}
+    .hero-title .ln span{transform:none!important; opacity:1!important;}
+    .rule{opacity:0.7!important; transform:none!important;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- ============ FV ============ --&gt;
+&lt;header class=&quot;hero&quot;&gt;
+  &lt;span class=&quot;eyebrow&quot;&gt;Akabane Yoshikazu &amp;mdash; Hands-On Seminar&lt;/span&gt;
+  &lt;p class=&quot;hero-q&quot;&gt;筋を緩めても、頚部・胸郭が動かない——&lt;br&gt;その先で、あなたの手は止まっていませんか。&lt;/p&gt;
+  &lt;h1 class=&quot;hero-title&quot;&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;頚部・胸郭の可動域を、&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;一生 &lt;span class=&quot;gold-ink&quot;&gt;自分の手&lt;/span&gt; で&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;出せるようになる。&lt;/span&gt;&lt;/span&gt;
+  &lt;/h1&gt;
+  &lt;p class=&quot;hero-sub&quot;&gt;頚部〜胸椎・胸郭の可動域制限を、筋ではなく&lt;b&gt;関節操作とハンドリング&lt;/b&gt;で解く対面実技研修。&lt;b&gt;5時間、ひたすら実技。&lt;/b&gt;&lt;b&gt;赤羽根良和&lt;/b&gt;が、可動域が変わるその瞬間と手順を、&lt;b&gt;たった12名&lt;/b&gt;にだけ直接お伝えします。&lt;/p&gt;
+
+  &lt;div class=&quot;cta-hero&quot;&gt;
+    &lt;a class=&quot;cta crim&quot; href=&quot;#apply&quot;&gt;この一日に申し込む&lt;/a&gt;
+    &lt;p class=&quot;cta-note&quot;&gt;2026.9.13 SAT ／ 10:00 – 15:00（5時間）／ 定員 12 名 ／ 対面実技&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;scroll-hint&quot;&gt;Scroll&lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/header&gt;
+
+&lt;!-- ============ 悩み喚起 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Wall&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;緩めた、その先で&lt;br&gt;手が止まる。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;voices-pain&quot;&gt;
+      &lt;p class=&quot;pain&quot;&gt;リリースで一度は緩むのに、翌週には可動域が戻ってしまう」&lt;/p&gt;
+      &lt;p class=&quot;pain&quot;&gt;硬いのは分かる。でも、関節をどの方向にどう動かせばいいか、手順が分からない」&lt;/p&gt;
+      &lt;p class=&quot;pain&quot;&gt;胸郭が動かせず、結局いつも頚部だけを診て終わってしまう」&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot;&gt;頚部・胸椎・胸郭にストレッチやリリースで向き合ってきた方ほど、この壁に突き当たります。本研修が扱うのは、その&lt;b&gt;「緩めた、その先」——筋ではなく関節そのものを動かすハンドリング&lt;/b&gt;。可動域がその場で変わる感覚を、&lt;span class=&quot;mark&quot;&gt;あなたの手で再現できるところまで&lt;/span&gt;持ち帰ります。&lt;/p&gt;
+    &lt;div class=&quot;rule&quot; style=&quot;max-width:120px; margin-top:56px;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 12名の意味 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:20px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;feature&quot;&gt;
+      &lt;p class=&quot;feature-head&quot;&gt;&lt;span class=&quot;feature-eyebrow&quot;&gt;Why only 12&lt;/span&gt;&lt;span class=&quot;feature-title&quot;&gt;「見学」では、&lt;br&gt;手は変わらない。&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;一般的な実技研修は30〜50名規模。その場で講師があなた一人の手に触れ、修正できる時間は、現実にはほとんどありません。&lt;strong&gt;「見て学ぶ」ことはできても、「自分の手を直してもらう」ことは難しい&lt;/strong&gt;のです。&lt;/p&gt;
+      &lt;p&gt;本研修は、定員&lt;span class=&quot;twelve&quot;&gt;12&lt;/span&gt;名。赤羽根良和が一人ひとりの手に直接触れ、力の方向・触知の深さ・タイミングを、その場で修正します。&lt;span class=&quot;mark&quot;&gt;あなたに割かれる時間が、桁違いに長い。&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;これが、この一日を「見学」ではなく&lt;strong&gt;「習得」&lt;/strong&gt;に変える理由です。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 受講者の声 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Voice&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;翌日の臨床から、&lt;br&gt;もう、&lt;span class=&quot;gold-ink&quot;&gt;違った&lt;/span&gt;。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;「わかりやすかった」ではなく、&lt;br&gt;&lt;span class=&quot;crim&quot;&gt;手が、変わった&lt;/span&gt;という声だけを集めました。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;vcard&quot;&gt;
+      &lt;div class=&quot;vmeta&quot;&gt;理学療法士・整形クリニック勤務 &lt;span&gt;／ [要確認：経験年数]&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel&quot;&gt;悩み&lt;/span&gt;胸郭の硬さをどう触ればいいか分からず、頚部のリリースだけで終わっていました。&lt;/p&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel gold&quot;&gt;変化&lt;/span&gt;関節の運動軸を意識して手を当てるようになり、&lt;span class=&quot;mark&quot;&gt;翌日の外来で頚部回旋の出方が目に見えて変わりました。&lt;/span&gt;「その場限り」だった結果が、続くようになっています。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;vcard&quot;&gt;
+      &lt;div class=&quot;vmeta&quot;&gt;理学療法士・回復期病棟勤務 &lt;span&gt;／ [要確認：経験年数]&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel&quot;&gt;悩み&lt;/span&gt;「先生がやると動くのに、自分がやると動かない」の理由が分かりませんでした。&lt;/p&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel gold&quot;&gt;変化&lt;/span&gt;手を当てる位置と力の抜き方を直接修正してもらえたことで、&lt;span class=&quot;mark&quot;&gt;復習動画を見ながら職場でも同じ操作が再現できる&lt;/span&gt;ようになりました。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ Before / After（ページ最大の山場） ============ --&gt;
+&lt;section class=&quot;sec transform-sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Transformation&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title big&quot;&gt;その手は、&lt;br&gt;明日から&lt;span class=&quot;gold-ink&quot;&gt;別物&lt;/span&gt;になる。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;同じ患者。同じ訴え。&lt;br&gt;変わるのは、あなたの手だけです。&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;緩めても戻る可動域に、&lt;br&gt;次の一手が、打てなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;関節を動かす手順が手に入り、&lt;br&gt;その場の変化が、&lt;b&gt;翌週も続く&lt;/b&gt;。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;頚部だけを診て、&lt;br&gt;胸郭の関与に、気づけなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;頚部から胸郭までを一本で読み、&lt;br&gt;&lt;b&gt;制限の本当の場所&lt;/b&gt;に、手が届く。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;「先生だからできる」技術は、&lt;br&gt;職場に持ち帰ると、再現できなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;直接修正された手の感覚を、&lt;br&gt;復習動画で&lt;b&gt;「自分の手」&lt;/b&gt;として定着させる。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;trans-close&quot;&gt;「わかった」で終わらない。&lt;br&gt;&lt;span class=&quot;mark&quot;&gt;あなたの手が、変わる。&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 核心（全幅の濃い帯） ============ --&gt;
+&lt;section class=&quot;core-band&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;text-align:center;margin-bottom:24px;&quot;&gt;The Essence&lt;/span&gt;
+    &lt;p class=&quot;core-text&quot;&gt;学ぶのは「赤羽根の技術」ではない。&lt;br&gt;一生、&lt;span class=&quot;gold-ink&quot;&gt;あなたの手で再現できる&lt;/span&gt;&lt;br&gt;関節操作の&lt;strong&gt;原理&lt;/strong&gt;です。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 動画 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Preview&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;筋では、戻る。&lt;br&gt;関節なら、&lt;span class=&quot;gold-ink&quot;&gt;続く&lt;/span&gt;。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;その違いを、言葉ではなく&lt;br&gt;動く可動域で、お見せします。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;video-frame&quot;&gt;
+      &lt;iframe src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ&quot; title=&quot;症例ミニ講義&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot; style=&quot;margin-top:30px;&quot;&gt;緩めても戻っていた可動域が、関節を動かすと&lt;b&gt;その場で変わり、そのまま続く&lt;/b&gt;。本研修で習得するのは、この一手です。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 落とし穴 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Pitfall&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;なぜ、改善しないのか。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pit&quot;&gt;
+      &lt;div class=&quot;pit-x&quot;&gt;✕&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;pit-h&quot;&gt;「硬い筋肉を緩めれば、可動域は出る」という思い込み&lt;/p&gt;
+        &lt;p class=&quot;pit-b&quot;&gt;筋を緩めても、関節そのものの運動性が低ければ可動域はすぐ元に戻ります。「緩める」と「動かす」は別の介入。緩めた後に関節を動かす手順がなければ、結果は続きません。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pit&quot;&gt;
+      &lt;div class=&quot;pit-x&quot;&gt;✕&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;pit-h&quot;&gt;「頚部の症状は、頚部を診れば足りる」という決めつけ&lt;/p&gt;
+        &lt;p class=&quot;pit-b&quot;&gt;&lt;span class=&quot;mark&quot;&gt;頚部の可動域は胸椎・胸郭の運動性に規定されている&lt;/span&gt;ため、頚部だけに介入しても変化は限定的。動かすべき場所を見誤ると、努力が結果に結びつきません。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 評価戦略 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Assessment&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;「どこが動かないのか」を&lt;br&gt;絞り込む。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot; style=&quot;margin:0 auto 40px;&quot;&gt;&lt;b&gt;結論：&lt;/b&gt;頚部単独で評価を完結させず、頚部→胸椎→胸郭の順に運動性を切り分け、制限の主因を特定します。&lt;/p&gt;
+    &lt;ol class=&quot;steps&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;1&lt;/span&gt;&lt;div&gt;&lt;b&gt;頚部の運動性&lt;/b&gt;　各方向の可動域と、動きの質（どの分節で止まるか）を確認する。&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;2&lt;/span&gt;&lt;div&gt;&lt;b&gt;胸椎の運動性&lt;/b&gt;　頚部の動きを規定する胸椎の伸展・回旋の可動性を評価する。&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;3&lt;/span&gt;&lt;div&gt;&lt;b&gt;胸郭の運動性&lt;/b&gt;　肋骨・胸郭の動きが頚胸移行部の可動域に与える影響を切り分ける。&lt;/div&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 症例 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Case Study&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;ケーススタディ&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;case&quot;&gt;
+      &lt;span class=&quot;case-n&quot;&gt;CASE 01&lt;/span&gt;
+      &lt;p class=&quot;case-t&quot;&gt;頚部回旋制限が続く症例（筋アプローチで一時改善も再燃）&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;介入&lt;/span&gt;胸椎回旋の運動性を評価し、関節操作で胸椎の可動性を引き出してから頚部を再評価。&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;結果&lt;/span&gt;[要確認：頚部回旋の改善度・持続]。頚部単独の介入では得られなかった変化が確認できた。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;case&quot;&gt;
+      &lt;span class=&quot;case-n&quot;&gt;CASE 02&lt;/span&gt;
+      &lt;p class=&quot;case-t&quot;&gt;胸郭の硬さを伴う頚部・肩甲帯症状の症例&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;介入&lt;/span&gt;肋骨・胸郭の運動性に対するハンドリングを実施し、頚胸移行部の動きを再構築。&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;結果&lt;/span&gt;[要確認：可動域・症状の変化]。胸郭から介入することで頚部の動きが変化した。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 得られること ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;What You Gain&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;この一日で、&lt;br&gt;手に入るもの。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;gains&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;01&lt;/span&gt;頚部・胸椎・胸郭を一連の連結として捉え、&lt;span class=&quot;mark&quot;&gt;可動域制限の「本当の場所」を見極める評価の視点&lt;/span&gt;。&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;02&lt;/span&gt;筋を緩めるのではなく、&lt;span class=&quot;mark&quot;&gt;関節そのものを動かすハンドリングの手順&lt;/span&gt;を、手の当て方・力の方向まで。&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;03&lt;/span&gt;当日で終わらせず、&lt;span class=&quot;mark&quot;&gt;復習動画・資料・1ヶ月の質問対応で「自分の手」として定着&lt;/span&gt;させる仕組み。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 受講に含まれるもの（中核＋特典） ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Included&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;この一日が、&lt;br&gt;一生の技術になる理由。&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;core-incl&quot;&gt;
+      &lt;span class=&quot;ci-seal&quot;&gt;本講座の中核&lt;/span&gt;
+      &lt;p class=&quot;ci-title&quot;&gt;赤羽根良和による、12名限定の直接指導&lt;/p&gt;
+      &lt;p class=&quot;ci-body&quot;&gt;あなたの手に直接触れ、力の方向・触知・タイミングをその場で修正する。この体験こそが、本研修の価値の中心です。&lt;span class=&quot;ci-price&quot;&gt;— 値を付けられない価値 —&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;incl-lead&quot;&gt;さらに、当日の技術を&lt;b&gt;「一生使える手」に定着させるための特典&lt;/b&gt;が含まれます。いずれも単体で価値のあるサービスです。&lt;/p&gt;
+
+    &lt;div class=&quot;benefits&quot;&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;復習動画 ＋ 再現性資料 ＋ 当日撮影可&lt;/b&gt;&lt;span&gt;手順を見返し、職場で再現するための教材&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;受講者専用オープンチャット（1ヶ月）&lt;/b&gt;&lt;span&gt;受講後1ヶ月、質問し放題で疑問を解消&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;臨床推論アプリ 3ヶ月サブスク無料&lt;/b&gt;&lt;span&gt;学んだ評価の視点を、日々の臨床で定着&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;関連座学セミナーの事前・事後 期間限定視聴&lt;/b&gt;&lt;span&gt;実技の理解を支える理論を、前後に補強&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben gold-ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;次回開催の優先申込権&lt;/b&gt;&lt;span&gt;埋まりやすい少人数枠を、優先的に確保&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val gold&quot;&gt;Priceless&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;incl-foot&quot;&gt;対面実技の受講料に加えて、これらすべてが含まれます。&lt;span class=&quot;mark&quot;&gt;付帯特典だけを単体で揃えても相応の費用がかかる&lt;/span&gt;ことを踏まえると、この一日に何が含まれているかが見えてきます（各相当額は確定次第、記載します）。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 価格 ============ --&gt;
+&lt;section class=&quot;sec price-sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;price-card&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;text-align:center;margin-bottom:18px;&quot;&gt;Investment&lt;/span&gt;
+      &lt;p class=&quot;price-lead&quot;&gt;一般的な実技セミナーの、およそ3倍。&lt;br&gt;それでも、これは&lt;span class=&quot;gold-ink&quot;&gt;消費ではなく投資&lt;/span&gt;です。&lt;/p&gt;
+      &lt;div class=&quot;price-figure&quot;&gt;&lt;span class=&quot;yen&quot;&gt;¥&lt;/span&gt;50,000&lt;span class=&quot;tax&quot;&gt;（税込）&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;price-note&quot;&gt;クレジットカード決済・銀行振込に対応。料金はどちらでも変わりません。&lt;/p&gt;
+      &lt;a class=&quot;cta crim&quot; href=&quot;#apply&quot; style=&quot;margin-top:8px;&quot;&gt;この一日に申し込む&lt;/a&gt;
+      &lt;p class=&quot;cta-note&quot;&gt;定員12名・初心者の方も歓迎します&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ プログラム ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Program&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;当日のプログラム&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prog-meta&quot;&gt;
+      &lt;span class=&quot;pm&quot;&gt;10:00 – 15:00&lt;/span&gt;
+      &lt;span class=&quot;pm-div&quot;&gt;／&lt;/span&gt;
+      &lt;span class=&quot;pm&quot;&gt;5時間&lt;/span&gt;
+      &lt;span class=&quot;pm-div&quot;&gt;／&lt;/span&gt;
+      &lt;span class=&quot;pm&quot;&gt;小休憩のみ&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;prog-lead&quot;&gt;座学は要点だけ。残りの時間は、&lt;span class=&quot;mark&quot;&gt;ひたすら実技に充てます。&lt;/span&gt;5時間、手を動かし続け、関節操作とハンドリングを&lt;b&gt;身体で覚えきる&lt;/b&gt;一日です。&lt;/p&gt;
+    &lt;ol class=&quot;prog&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;01&lt;/span&gt;&lt;div&gt;&lt;b&gt;導入：関節で動かすという考え方&lt;/b&gt;&lt;span&gt;筋ではなく関節の動きとして可動域を理解する。本研修の前提を、最短で押さえる。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;02&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：制限部位を切り分ける評価&lt;/b&gt;&lt;span&gt;頚部・胸椎・胸郭のどこが可動域を止めているかを、ペアで手を動かしながら絞り込む。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;03&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：関節操作・ハンドリング（中核）&lt;/b&gt;&lt;span&gt;手の当て方・力の方向・タイミングを、講師の直接修正を受けながら反復。可動域が変わる感覚を、手に刻む。最も多くの時間を割く。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;04&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：臨床での再現と個別質疑&lt;/b&gt;&lt;span&gt;職場で再現するためのポイントを一人ずつ確認。できるようになるまで手を止めない。※詳細は確定次第、本ページに掲載します。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 返金保証を設けない理由 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;honest&quot;&gt;
+      &lt;span class=&quot;honest-seal&quot;&gt;返金保証を設けない理由&lt;/span&gt;
+      &lt;p&gt;本研修には、全額返金保証を設けていません。&lt;strong&gt;復習動画・資料・1ヶ月の質問対応・アプリ・座学視聴まで含み、受講した時点で学習資産が手元に残る設計&lt;/strong&gt;であるため、そして&lt;strong&gt;定員12名の枠を、本気で学ぶ方に確保したい&lt;/strong&gt;ためです。&lt;/p&gt;
+      &lt;p class=&quot;honest-close&quot;&gt;守る必要がないほど、中身に自信がある。&lt;br&gt;その選択であることを、ご理解いただけますと幸いです。&lt;/p&gt;
+      &lt;p class=&quot;honest-note&quot;&gt;※キャンセル・振替の取り扱いは[要確認：キャンセル規定]に従います。お申込み前にご確認ください。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ FAQ ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;FAQ&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;よくある質問&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;faq&quot;&gt;
+      &lt;details&gt;&lt;summary&gt;経験が浅くても受講できますか？&lt;/summary&gt;&lt;div&gt;はい、若手の方も歓迎します。12名限定で講師が一人ひとりの手を直接修正するため、経験年数を問わず「自分の手で動かせる」状態を持ち帰っていただけます。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;受講料が一般的な実技セミナーより高いのはなぜですか？&lt;/summary&gt;&lt;div&gt;30〜50名規模では難しい「講師に手を直接見てもらう時間」を、12名限定で確保しているためです。さらに復習動画・再現性資料・1ヶ月の質問対応・臨床推論アプリ3ヶ月・関連座学の視聴が含まれ、受講後も技術が定着するまで伴走する設計になっています。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;全額返金保証はありますか？&lt;/summary&gt;&lt;div&gt;本研修には全額返金保証を設けていません。復習動画・資料・1ヶ月の質問対応・アプリ・座学視聴まで含み、受講した時点で持ち帰る学習資産が確定する設計のためです。また、定員12名の枠を本気で学びたい方に確保する目的もあり、保証ではなくキャンセルポリシーで運用します（詳細は[要確認：キャンセル規定]）。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;当日学んだ技術を、職場で再現できるか不安です。&lt;/summary&gt;&lt;div&gt;その不安に応えるための設計です。当日の手技は撮影可能で、復習動画と手順を言語化した資料をお渡しします。さらに受講後1ヶ月は専用チャットで質問でき、「その場だけ」で終わらせません。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;支払い方法は何が選べますか？&lt;/summary&gt;&lt;div&gt;クレジットカード決済と銀行振込のどちらにも対応しています。料金はどちらの方法でも変わりません。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;研修は何時間ですか？休憩はありますか？&lt;/summary&gt;&lt;div&gt;10:00〜15:00の5時間です。設けるのは小休憩のみで、座学は要点に絞り、時間のほとんどを実技に充てます。手を動かし続け、関節操作とハンドリングを身体で覚えきる一日です。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;持ち物や服装はありますか？&lt;/summary&gt;&lt;div&gt;実技を伴うため、動きやすい服装でのご参加をおすすめします。詳細な持ち物は[要確認：当日案内]にてご案内します。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;当日都合がつかなくなった場合はどうなりますか？&lt;/summary&gt;&lt;div&gt;対面実技のため、キャンセル・振替の取り扱いは[要確認：キャンセル規定]に従います。お申込み前にご確認ください。&lt;/div&gt;&lt;/details&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 講師 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Instructor&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;赤羽根 良和&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;instr&quot;&gt;
+      &lt;div class=&quot;instr-photo&quot;&gt;
+        &lt;img src=&quot;data:image/jpeg;base64,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&quot; alt=&quot;赤羽根良和先生&quot; onerror=&quot;this.style.display=&#x27;none&#x27;;this.parentNode.classList.add(&#x27;noimg&#x27;);&quot;&gt;
+        &lt;span class=&quot;instr-initial&quot;&gt;赤&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;instr-role&quot;&gt;さとう整形外科 リハビリテーション科 室長&lt;/p&gt;
+      &lt;p class=&quot;instr-body&quot;&gt;運動器の疼痛に対する評価とアプローチを深く学べる講師として、臨床で結果を出せると高い支持を集める。頚部〜胸椎の可動域、足部・足関節障害、運動連鎖など、徒手と機能解剖に根ざした著書・DVDを多数発表。学会・論文での発信も継続している。&lt;/p&gt;
+      &lt;p class=&quot;instr-stat&quot;&gt;&lt;span class=&quot;mark&quot;&gt;運動器疼痛領域での再受講率 90.4%（2021年）&lt;/span&gt; — 受講者の多くが、繰り返し学びに戻ってくる。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ クロージング ============ --&gt;
+&lt;section class=&quot;closing&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;margin-bottom:28px;&quot;&gt;The Last Word&lt;/span&gt;
+    &lt;p class=&quot;closing-text&quot;&gt;この一日で習得した手は、&lt;br&gt;&lt;span class=&quot;gold-ink&quot;&gt;10年先のあなたの臨床&lt;/span&gt;も支えます。&lt;/p&gt;
+    &lt;div class=&quot;closing-cta&quot;&gt;
+      &lt;a class=&quot;cta&quot; href=&quot;#apply&quot;&gt;今すぐ、この一日に申し込む&lt;/a&gt;
+      &lt;p class=&quot;cta-note&quot;&gt;2026年9月13日（土）10:00–15:00（5時間・実技中心）／ 会場：アンビション貸会議室 ／ 定員12名 ／ 申込締切は[要確認]まで&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;footer class=&quot;foot&quot;&gt;
+  &lt;p class=&quot;foot-title&quot;&gt;頚部・胸郭の可動域を、一生自分の手で。&lt;/p&gt;
+  &lt;p class=&quot;foot-sub&quot;&gt;赤羽根良和 対面実技研修 ／ 一般社団法人セラピストフォーライフ&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;script&gt;
+  // スクロールリビール
+  (function(){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add(&#x27;in&#x27;); io.unobserve(e.target);} });
+    },{threshold:0.18, rootMargin:&quot;0px 0px -8% 0px&quot;});
+    document.querySelectorAll(&#x27;.reveal&#x27;).forEach(function(el){io.observe(el);});
+  })();
+
+  // FV ロード演出はCSSアニメーションで完結（追加スクリプトなし）
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div></div><div class="col" id="colPhone"><span class="cap">📱 スマホ表示（横390px・iPhone相当）</span>
+<div class="phone"><div class="screen"><div class="notch"></div><iframe title="phone" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;頚部・胸郭の可動域を、一生自分の手で｜赤羽根良和 対面実技研修&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;頚部〜胸椎・胸郭の可動域制限を、筋ではなく関節操作とハンドリングで解く対面実技研修。赤羽根良和が定員12名に直接指導。受講後も技術が定着するまで伴走します。&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --ink:#0A0A0C; --char:#15151A; --char2:#1C1C22;
+    --gold:#C9A227; --gold-bright:#E8C84B; --gold-deep:#8A6E1C;
+    /* 赤は「問題・痛み・警告」専用。黒地になじむ落ち着いた深紅に統一 */
+    --crimson:#8E2433; --crimson-glow:#B23A48;
+    --paper:#EDE6D6; --paper-dim:#A9A395; --line:#2A2A30;
+    --mincho:&quot;Shippori Mincho B1&quot;,serif;
+    --garamond:&quot;Cormorant Garamond&quot;,serif;
+    --gothic:&quot;Zen Kaku Gothic New&quot;,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:var(--gothic); font-weight:400; line-height:1.95;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* 背景の微細な金の粒子テクスチャ（重厚感） */
+  body::before{
+    content:&quot;&quot;; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,162,39,0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 110%, rgba(201,162,39,0.05), transparent 60%);
+  }
+  .wrap{position:relative; z-index:1; max-width:760px; margin:0 auto; padding:0 22px;}
+  section{position:relative; z-index:1;}
+
+  /* タイポ基礎 */
+  h1,h2,h3,.disp{font-family:var(--mincho); font-weight:700; line-height:1.45; letter-spacing:0.02em;}
+  .eyebrow{font-family:var(--garamond); font-weight:500; letter-spacing:0.32em; text-transform:uppercase;
+    font-size:0.82rem; color:var(--gold); }
+  .kanji-num{font-family:var(--mincho); color:var(--gold); font-weight:600;}
+  strong{color:var(--gold-bright); font-weight:700;}
+  .crim{color:var(--gold-bright); font-weight:700;}
+  .mark{color:var(--gold-bright); font-weight:700; box-shadow:inset 0 -0.55em 0 rgba(201,162,39,0.16);}
+
+  /* 金の細い区切り */
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--gold-deep),var(--gold),var(--gold-deep),transparent);
+    margin:0 auto; opacity:0.0; transform:scaleX(0.3); transition:opacity 1s ease, transform 1.4s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in .rule{opacity:0.7; transform:scaleX(1);}
+
+  /* リビール */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform 1.1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.12s;} .reveal.d2{transition-delay:.24s;} .reveal.d3{transition-delay:.36s;} .reveal.d4{transition-delay:.48s;}
+
+  /* ===== FV ===== */
+  .hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:96px 22px 64px; position:relative;}
+  .hero .eyebrow{margin-bottom:30px; opacity:0; animation:fadeIn 1.2s ease .3s forwards;}
+  .hero-q{font-family:var(--mincho); font-weight:500; font-size:clamp(0.98rem,3.6vw,1.18rem);
+    color:var(--crimson-glow); letter-spacing:0.04em; margin-bottom:22px; line-height:1.8;
+    opacity:0; animation:fadeUp 1s ease .6s forwards;}
+  .hero-title{font-size:clamp(2.0rem,8.2vw,3.5rem); font-weight:800; line-height:1.4; letter-spacing:0.03em;
+    margin-bottom:30px;}
+  .hero-title .ln{display:block; overflow:hidden;}
+  .hero-title .ln span{display:inline-block; transform:translateY(110%); opacity:0;
+    animation:riseIn 1.1s cubic-bezier(.16,.84,.3,1) forwards;}
+  .hero-title .ln:nth-child(1) span{animation-delay:.85s;}
+  .hero-title .ln:nth-child(2) span{animation-delay:1.0s;}
+  .hero-title .ln:nth-child(3) span{animation-delay:1.15s;}
+  .gold-ink{color:var(--gold-bright);
+    text-shadow:0 0 24px rgba(232,200,75,0.28);}
+  .crim-ink{color:var(--crimson-glow);}
+  .hero-sub{max-width:560px; font-size:clamp(0.95rem,3.4vw,1.06rem); color:var(--paper-dim);
+    line-height:2.05; margin-bottom:38px; opacity:0; animation:fadeUp 1s ease 1.5s forwards;}
+  .hero-sub b{color:var(--paper); font-weight:500;}
+
+  /* CTA：ポジティブ＝ゴールドに一本化。地のCTAは金枠、主役CTA(.crim)は金塗り */
+  .cta{display:inline-block; font-family:var(--gothic); font-weight:700; font-size:1.02rem;
+    letter-spacing:0.08em; color:var(--gold-bright); text-decoration:none; padding:18px 50px; border-radius:2px;
+    background:linear-gradient(180deg,rgba(201,162,39,0.14),rgba(201,162,39,0.04)); position:relative;
+    border:1px solid var(--gold); transition:transform .35s ease, box-shadow .35s ease, background .35s ease, color .35s ease;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(232,200,75,0.15);}
+  .cta:hover{transform:translateY(-2px); background:linear-gradient(180deg,rgba(201,162,39,0.24),rgba(201,162,39,0.08));
+    box-shadow:0 12px 36px rgba(201,162,39,0.22), inset 0 1px 0 rgba(232,200,75,0.25);}
+  .cta:focus-visible{outline:3px solid var(--gold-bright); outline-offset:3px;}
+  /* 主役CTA：金の塗り＋黒文字（黒地に最も映える・最も押させる） */
+  .cta.crim{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#1A1206;
+    border-color:var(--gold-bright); box-shadow:0 8px 30px rgba(201,162,39,0.28), inset 0 1px 0 rgba(255,255,255,0.4);}
+  .cta.crim:hover{background:linear-gradient(180deg,#F2D766,var(--gold-bright)); color:#1A1206;
+    box-shadow:0 14px 44px rgba(232,200,75,0.45), inset 0 1px 0 rgba(255,255,255,0.5);}
+  .cta-note{margin-top:16px; font-size:0.82rem; color:var(--paper-dim); letter-spacing:0.06em;}
+  .cta-hero{opacity:0; animation:fadeUp 1s ease 1.9s forwards;}
+
+  .scroll-hint{position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    font-family:var(--garamond); font-size:0.72rem; letter-spacing:0.3em; color:var(--paper-dim);
+    opacity:0; animation:fadeIn 1.4s ease 2.4s forwards; text-transform:uppercase;}
+  .scroll-hint .bar{display:block; width:1px; height:42px; margin:10px auto 0;
+    background:linear-gradient(var(--gold),transparent); }
+
+  /* セクション共通 */
+  .sec{padding:84px 0;}
+  .sec-head{text-align:center; margin-bottom:48px;}
+  .sec-head .eyebrow{display:block; margin-bottom:16px;}
+  .sec-title{font-size:clamp(1.5rem,5.6vw,2.2rem); font-weight:700; line-height:1.5; letter-spacing:0.02em;}
+
+  /* 悩みの声 */
+  .voices-pain{max-width:600px; margin:0 auto;}
+  .pain{font-family:var(--mincho); font-size:clamp(1.05rem,4vw,1.3rem); color:var(--paper);
+    line-height:1.95; padding:22px 0 22px 28px; border-left:2px solid var(--crimson);
+    margin-bottom:18px; position:relative; font-weight:500;}
+  .pain::before{content:&quot;「&quot;; position:absolute; left:6px; top:14px; color:var(--crimson-glow); font-family:var(--mincho); font-size:1.4em;}
+  .lead{font-size:1.04rem; line-height:2.1; color:var(--paper-dim); text-align:center; max-width:620px; margin:40px auto 0;}
+  .lead b{color:var(--paper);}
+
+  /* 12名カード（ゴールド枠の格） */
+  .feature{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:40px 34px 44px; max-width:620px; margin:0 auto; position:relative; overflow:hidden;}
+  .feature::before{content:&quot;&quot;; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 80% -10%, rgba(201,162,39,0.12), transparent 55%);}
+  .feature-head{position:relative; text-align:center; margin-bottom:26px!important;}
+  .feature-eyebrow{display:block; font-family:var(--garamond); letter-spacing:0.28em; font-size:0.74rem;
+    color:var(--gold); text-transform:uppercase; margin-bottom:14px;}
+  .feature-title{display:block; font-family:var(--mincho); font-weight:700; color:var(--paper);
+    font-size:clamp(1.4rem,5.4vw,2rem); line-height:1.55; letter-spacing:0.02em;}
+  .feature p{position:relative; line-height:2.05; margin-bottom:16px;}
+  .feature p:last-child{margin-bottom:0;}
+  .twelve{font-family:var(--mincho); font-size:clamp(2.6rem,11vw,4rem); font-weight:800; color:var(--gold-bright);
+    line-height:1; display:inline-block; vertical-align:-0.08em; margin:0 6px;
+    text-shadow:0 0 30px rgba(232,200,75,0.35);}
+
+  @keyframes fadeIn{to{opacity:1;}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes riseIn{to{transform:none;opacity:1;}}
+
+  /* ===== 受講者の声 ===== */
+  .vcard{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--line);
+    border-left:2px solid var(--gold-deep); border-radius:4px; padding:26px 28px; margin-bottom:18px;}
+  .vmeta{font-family:var(--garamond); font-size:0.95rem; letter-spacing:0.04em; color:var(--gold); margin-bottom:14px;}
+  .vmeta span{color:var(--paper-dim);}
+  .vbody{line-height:1.95; margin-bottom:10px;}
+  .vbody:last-child{margin-bottom:0;}
+  .vlabel{display:inline-block; font-family:var(--mincho); font-size:0.82rem; color:var(--crimson-glow);
+    border:1px solid var(--crimson); border-radius:2px; padding:1px 10px; margin-right:10px; vertical-align:0.08em;}
+  .vlabel.gold{color:var(--gold-bright); border-color:var(--gold-deep);}
+
+  /* ===== Transformation（最大の山場） ===== */
+  .sec-title.big{font-size:clamp(1.9rem,7vw,2.9rem); line-height:1.4;}
+  .sec-sub{font-family:var(--mincho); font-weight:500; color:var(--paper-dim);
+    font-size:clamp(0.98rem,3.6vw,1.18rem); line-height:1.9; margin-top:20px;}
+  .transform-sec{background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,162,39,0.06), transparent 70%);}
+  .trans{max-width:560px; margin:0 auto 40px;}
+  .trans-before{background:#101013; border:1px solid var(--line); border-radius:4px;
+    padding:20px 24px; text-align:center; opacity:0.62; filter:saturate(0.5);}
+  .trans-before p{font-family:var(--mincho); color:var(--paper-dim); font-size:1.02rem; line-height:1.75;}
+  .trans-after{background:linear-gradient(165deg,rgba(201,162,39,0.18),rgba(201,162,39,0.05),var(--char));
+    border:1.5px solid var(--gold); border-radius:4px; padding:26px 26px; text-align:center;
+    box-shadow:0 10px 40px rgba(201,162,39,0.12);}
+  .trans-after p{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:clamp(1.1rem,4.4vw,1.4rem); line-height:1.7;}
+  .trans-after p b{color:var(--gold-bright); font-weight:700;}
+  .tlabel{display:inline-block; font-family:var(--garamond); font-size:0.78rem; letter-spacing:0.16em;
+    color:var(--paper-dim); text-transform:uppercase; margin-bottom:10px;}
+  .tlabel.gold{color:var(--gold-bright);}
+  .trans-arrow{text-align:center; line-height:1; padding:8px 0; color:var(--gold);}
+  .trans-arrow span{display:inline-block; font-size:1.5rem; animation:arrowPulse 2.2s ease-in-out infinite;}
+  @keyframes arrowPulse{0%,100%{transform:translateY(0);opacity:0.6;}50%{transform:translateY(4px);opacity:1;}}
+  .trans-close{text-align:center; font-family:var(--mincho); font-weight:700;
+    font-size:clamp(1.3rem,5vw,1.9rem); line-height:1.7; margin-top:8px;}
+  @media (prefers-reduced-motion:reduce){ .trans-arrow span{animation:none;} }
+
+  /* ===== 核心バンド（全幅） ===== */
+  .core-band{padding:88px 0; background:
+    radial-gradient(ellipse 70% 100% at 50% 50%, rgba(201,162,39,0.07), transparent 70%), #08080A;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .core-text{font-family:var(--mincho); font-weight:700; text-align:center;
+    font-size:clamp(1.5rem,5.6vw,2.3rem); line-height:1.75; letter-spacing:0.03em;}
+  .core-text strong{color:var(--gold-bright);}
+
+  /* ===== 動画 ===== */
+  .video-frame{position:relative; width:100%; max-width:620px; margin:0 auto; aspect-ratio:16/9;
+    border:1px solid var(--gold-deep); border-radius:4px; overflow:hidden; background:#000;
+    box-shadow:0 12px 50px rgba(0,0,0,0.6);}
+  .video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+
+  /* ===== 落とし穴 ===== */
+  .pit{display:flex; gap:18px; align-items:flex-start; background:var(--char);
+    border:1px solid var(--line); border-left:2px solid var(--crimson); border-radius:4px;
+    padding:22px 24px; margin-bottom:16px;}
+  .pit-x{font-family:var(--mincho); color:var(--crimson-glow); font-size:1.4rem; line-height:1.4; flex:none;}
+  .pit-h{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:1.05rem; line-height:1.6; margin-bottom:8px;}
+  .pit-b{color:var(--paper-dim); line-height:1.9; font-size:0.96rem;}
+
+  /* ===== 評価戦略ステップ ===== */
+  .steps{list-style:none; max-width:620px; margin:0 auto;}
+  .steps li{display:flex; gap:20px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line);}
+  .steps li:last-child{border-bottom:none;}
+  .step-n{font-family:var(--garamond); font-weight:600; font-size:1.7rem; color:var(--gold-bright); flex:none; width:1.6em; text-align:center; line-height:1.4; letter-spacing:0.02em;}
+  .steps b{color:var(--paper); display:block; margin-bottom:2px;}
+  .steps div{line-height:1.85; color:var(--paper-dim);}
+
+  /* ===== 症例 ===== */
+  .case{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--line);
+    border-radius:4px; padding:24px 26px; margin-bottom:16px;}
+  .case-n{display:inline-block; font-family:var(--mincho); font-size:0.82rem; letter-spacing:0.16em;
+    color:var(--ink); background:linear-gradient(180deg,var(--gold-bright),var(--gold)); padding:3px 14px; border-radius:2px; margin-bottom:14px;}
+  .case-t{font-family:var(--mincho); font-weight:600; color:var(--paper); font-size:1.06rem; line-height:1.6; margin-bottom:12px;}
+  .case-l{line-height:1.9; margin-bottom:6px; color:var(--paper-dim); font-size:0.96rem;}
+  .case-l span{font-family:var(--mincho); color:var(--gold); margin-right:10px;}
+
+  /* ===== 得られること ===== */
+  .gains{list-style:none; max-width:640px; margin:0 auto;}
+  .gains li{display:flex; gap:20px; align-items:flex-start; background:linear-gradient(160deg,rgba(201,162,39,0.06),transparent);
+    border:1px solid var(--gold-deep); border-radius:4px; padding:22px 24px; margin-bottom:14px; line-height:1.95;}
+  .gd{font-family:var(--garamond); font-weight:600; font-size:1.6rem; color:var(--gold-bright); flex:none; line-height:1.4; letter-spacing:0.02em; min-width:1.5em;}
+
+  /* ===== 中核＋特典 ===== */
+  .core-incl{background:linear-gradient(160deg,#1F1A12,var(--char)); border:1.5px solid var(--gold); border-radius:4px;
+    padding:32px 30px; margin-bottom:26px; text-align:center; position:relative; overflow:hidden;}
+  .core-incl::before{content:&quot;&quot;; position:absolute; inset:0; background:radial-gradient(circle at 50% -20%, rgba(232,200,75,0.14), transparent 60%); pointer-events:none;}
+  .ci-seal{display:inline-block; font-family:var(--mincho); font-size:0.82rem; letter-spacing:0.14em; color:var(--ink);
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold)); padding:5px 18px; border-radius:2px; margin-bottom:18px; position:relative;}
+  .ci-title{font-family:var(--mincho); font-weight:700; font-size:clamp(1.2rem,4.6vw,1.5rem); color:var(--gold-bright);
+    line-height:1.6; margin-bottom:14px; position:relative;}
+  .ci-body{line-height:2; color:var(--paper); position:relative;}
+  .ci-price{display:block; font-family:var(--garamond); font-style:italic; color:var(--gold); margin-top:12px; letter-spacing:0.06em;}
+  .incl-lead{text-align:center; line-height:2; color:var(--paper-dim); max-width:600px; margin:0 auto 26px;}
+  .incl-lead b{color:var(--paper);}
+  .benefits{max-width:640px; margin:0 auto;}
+  .ben{display:flex; justify-content:space-between; align-items:center; gap:18px;
+    background:var(--char); border:1px solid var(--line); border-radius:4px; padding:18px 22px; margin-bottom:12px;}
+  .ben-main b{display:block; color:var(--paper); font-weight:700; margin-bottom:3px; line-height:1.5;}
+  .ben-main span{font-size:0.86rem; color:var(--paper-dim); line-height:1.6;}
+  .ben-val{font-family:var(--garamond); font-size:1.05rem; color:var(--paper-dim); white-space:nowrap; letter-spacing:0.04em; flex:none;}
+  .ben-val.gold{color:var(--gold-bright); font-weight:600;}
+  .gold-ben{border-color:var(--gold-deep); background:linear-gradient(160deg,rgba(201,162,39,0.08),var(--char));}
+  .incl-foot{text-align:center; line-height:2; color:var(--paper-dim); max-width:600px; margin:26px auto 0;}
+
+  /* ===== 価格 ===== */
+  .price-sec{background:radial-gradient(ellipse 80% 100% at 50% 0%, rgba(201,162,39,0.09), transparent 65%);}
+  .price-card{text-align:center; background:linear-gradient(170deg,var(--char2),#0C0C0F); border:1px solid var(--gold-deep);
+    border-radius:6px; padding:46px 30px; max-width:560px; margin:0 auto;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,162,39,0.15);}
+  .price-lead{font-family:var(--mincho); font-size:clamp(1.05rem,4vw,1.3rem); line-height:1.8; margin-bottom:24px;}
+  .price-figure{font-family:var(--garamond); font-weight:600; font-size:clamp(3rem,14vw,4.6rem); color:var(--gold-bright);
+    line-height:1; letter-spacing:0.02em; margin-bottom:14px; text-shadow:0 0 36px rgba(232,200,75,0.3);}
+  .price-figure .yen{font-size:0.5em; vertical-align:0.32em; margin-right:4px;}
+  .price-figure .tax{font-family:var(--gothic); font-size:0.22em; color:var(--paper-dim); vertical-align:0.5em; margin-left:8px; letter-spacing:0;}
+  .price-note{font-size:0.88rem; color:var(--paper-dim); margin-bottom:30px; line-height:1.8;}
+
+  /* ===== プログラム ===== */
+  .prog-meta{display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px;}
+  .pm{font-family:var(--garamond); font-weight:600; font-size:clamp(1.1rem,4vw,1.35rem); color:var(--gold-bright); letter-spacing:0.04em;}
+  .pm-div{color:var(--gold-deep); font-family:var(--mincho);}
+  .prog-lead{text-align:center; line-height:2.05; color:var(--paper-dim); max-width:600px; margin:0 auto 40px;}
+  .prog-lead b{color:var(--paper);}
+  .prog{list-style:none; max-width:640px; margin:0 auto;}
+  .prog li{display:flex; gap:22px; align-items:flex-start; padding:22px 0; border-bottom:1px solid var(--line);}
+  .prog li:last-child{border-bottom:none;}
+  .pg-n{font-family:var(--garamond); font-size:1.5rem; font-weight:600; color:var(--gold); flex:none; line-height:1.4; letter-spacing:0.04em;}
+  .prog b{display:block; font-family:var(--mincho); color:var(--paper); font-size:1.08rem; margin-bottom:6px; line-height:1.5;}
+  .prog span{color:var(--paper-dim); line-height:1.85; font-size:0.95rem;}
+
+  /* ===== 返金理由 ===== */
+  .honest{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:38px 32px; max-width:620px; margin:0 auto; text-align:center;}
+  .honest-seal{display:inline-block; font-family:var(--mincho); font-size:0.86rem; letter-spacing:0.14em;
+    color:var(--gold-bright); border:1px solid var(--gold-deep); border-radius:2px; padding:5px 18px; margin-bottom:24px;}
+  .honest p{line-height:2.05; color:var(--paper-dim); margin-bottom:16px; text-align:left;}
+  .honest-close{font-family:var(--mincho)!important; font-size:1.2rem; color:var(--paper)!important; text-align:center!important;
+    line-height:1.85; margin:24px 0!important;}
+  .honest-close+.honest-note{margin-bottom:0!important;}
+  .honest-note{font-size:0.84rem; text-align:center!important; color:var(--paper-dim)!important;}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:640px; margin:0 auto;}
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{font-family:var(--mincho); font-weight:600; font-size:1.04rem; color:var(--paper);
+    padding:20px 40px 20px 0; cursor:pointer; position:relative; list-style:none; line-height:1.6;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:&quot;＋&quot;; position:absolute; right:6px; top:18px; color:var(--gold); font-family:var(--mincho); font-size:1.2rem; transition:transform .3s ease;}
+  .faq details[open] summary::after{content:&quot;−&quot;;}
+  .faq summary:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .faq details div{padding:0 0 22px; color:var(--paper-dim); line-height:2; font-size:0.96rem;}
+
+  /* ===== 講師 ===== */
+  .instr{max-width:600px; margin:0 auto; text-align:center;}
+  .instr-photo{width:148px; height:148px; margin:0 auto 24px; border-radius:50%; position:relative;
+    border:2px solid var(--gold); padding:5px; background:linear-gradient(160deg,var(--char2),var(--char));
+    box-shadow:0 0 30px rgba(201,162,39,0.18);}
+  .instr-photo img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; position:relative; z-index:2;}
+  .instr-photo .instr-initial{position:absolute; inset:5px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mincho); font-weight:700; font-size:3rem; color:var(--crimson-glow);
+    background:radial-gradient(circle at 50% 35%, #20202a, var(--ink)); z-index:1;}
+  /* 画像が読めた時はイニシャルを隠す（imgがz-index:2で覆う）。読めない時はnoimgでimg消えイニシャル露出 */
+  .instr-photo.noimg{} 
+  .instr-role{font-family:var(--garamond); font-size:1.05rem; letter-spacing:0.06em; color:var(--gold); margin-bottom:22px;}
+  .instr-body{line-height:2.1; color:var(--paper-dim); margin-bottom:22px; text-align:left;}
+  .instr-stat{font-family:var(--mincho); line-height:1.9; color:var(--paper);}
+
+  /* ===== クロージング ===== */
+  .closing{padding:110px 0; text-align:center; background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,162,39,0.08), transparent 65%); border-top:1px solid var(--line);}
+  .closing-text{font-family:var(--mincho); font-weight:700; font-size:clamp(1.6rem,6vw,2.5rem); line-height:1.7;
+    letter-spacing:0.03em; margin-bottom:44px;}
+  .closing-cta .cta{font-size:1.08rem; padding:20px 56px;}
+
+  /* ===== フッター ===== */
+  .foot{text-align:center; padding:54px 22px; border-top:1px solid var(--line); background:#070709;}
+  .foot-title{font-family:var(--mincho); font-weight:600; color:var(--gold); font-size:1.05rem; line-height:1.7; margin-bottom:10px;}
+  .foot-sub{font-size:0.82rem; color:var(--paper-dim); letter-spacing:0.04em;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important; transition:none!important;}
+    .reveal{opacity:1!important; transform:none!important;}
+    .hero-title .ln span{transform:none!important; opacity:1!important;}
+    .rule{opacity:0.7!important; transform:none!important;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- ============ FV ============ --&gt;
+&lt;header class=&quot;hero&quot;&gt;
+  &lt;span class=&quot;eyebrow&quot;&gt;Akabane Yoshikazu &amp;mdash; Hands-On Seminar&lt;/span&gt;
+  &lt;p class=&quot;hero-q&quot;&gt;筋を緩めても、頚部・胸郭が動かない——&lt;br&gt;その先で、あなたの手は止まっていませんか。&lt;/p&gt;
+  &lt;h1 class=&quot;hero-title&quot;&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;頚部・胸郭の可動域を、&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;一生 &lt;span class=&quot;gold-ink&quot;&gt;自分の手&lt;/span&gt; で&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;ln&quot;&gt;&lt;span&gt;出せるようになる。&lt;/span&gt;&lt;/span&gt;
+  &lt;/h1&gt;
+  &lt;p class=&quot;hero-sub&quot;&gt;頚部〜胸椎・胸郭の可動域制限を、筋ではなく&lt;b&gt;関節操作とハンドリング&lt;/b&gt;で解く対面実技研修。&lt;b&gt;5時間、ひたすら実技。&lt;/b&gt;&lt;b&gt;赤羽根良和&lt;/b&gt;が、可動域が変わるその瞬間と手順を、&lt;b&gt;たった12名&lt;/b&gt;にだけ直接お伝えします。&lt;/p&gt;
+
+  &lt;div class=&quot;cta-hero&quot;&gt;
+    &lt;a class=&quot;cta crim&quot; href=&quot;#apply&quot;&gt;この一日に申し込む&lt;/a&gt;
+    &lt;p class=&quot;cta-note&quot;&gt;2026.9.13 SAT ／ 10:00 – 15:00（5時間）／ 定員 12 名 ／ 対面実技&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;scroll-hint&quot;&gt;Scroll&lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/header&gt;
+
+&lt;!-- ============ 悩み喚起 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Wall&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;緩めた、その先で&lt;br&gt;手が止まる。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;voices-pain&quot;&gt;
+      &lt;p class=&quot;pain&quot;&gt;リリースで一度は緩むのに、翌週には可動域が戻ってしまう」&lt;/p&gt;
+      &lt;p class=&quot;pain&quot;&gt;硬いのは分かる。でも、関節をどの方向にどう動かせばいいか、手順が分からない」&lt;/p&gt;
+      &lt;p class=&quot;pain&quot;&gt;胸郭が動かせず、結局いつも頚部だけを診て終わってしまう」&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot;&gt;頚部・胸椎・胸郭にストレッチやリリースで向き合ってきた方ほど、この壁に突き当たります。本研修が扱うのは、その&lt;b&gt;「緩めた、その先」——筋ではなく関節そのものを動かすハンドリング&lt;/b&gt;。可動域がその場で変わる感覚を、&lt;span class=&quot;mark&quot;&gt;あなたの手で再現できるところまで&lt;/span&gt;持ち帰ります。&lt;/p&gt;
+    &lt;div class=&quot;rule&quot; style=&quot;max-width:120px; margin-top:56px;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 12名の意味 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:20px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;feature&quot;&gt;
+      &lt;p class=&quot;feature-head&quot;&gt;&lt;span class=&quot;feature-eyebrow&quot;&gt;Why only 12&lt;/span&gt;&lt;span class=&quot;feature-title&quot;&gt;「見学」では、&lt;br&gt;手は変わらない。&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;一般的な実技研修は30〜50名規模。その場で講師があなた一人の手に触れ、修正できる時間は、現実にはほとんどありません。&lt;strong&gt;「見て学ぶ」ことはできても、「自分の手を直してもらう」ことは難しい&lt;/strong&gt;のです。&lt;/p&gt;
+      &lt;p&gt;本研修は、定員&lt;span class=&quot;twelve&quot;&gt;12&lt;/span&gt;名。赤羽根良和が一人ひとりの手に直接触れ、力の方向・触知の深さ・タイミングを、その場で修正します。&lt;span class=&quot;mark&quot;&gt;あなたに割かれる時間が、桁違いに長い。&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;これが、この一日を「見学」ではなく&lt;strong&gt;「習得」&lt;/strong&gt;に変える理由です。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 受講者の声 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Voice&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;翌日の臨床から、&lt;br&gt;もう、&lt;span class=&quot;gold-ink&quot;&gt;違った&lt;/span&gt;。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;「わかりやすかった」ではなく、&lt;br&gt;&lt;span class=&quot;crim&quot;&gt;手が、変わった&lt;/span&gt;という声だけを集めました。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;vcard&quot;&gt;
+      &lt;div class=&quot;vmeta&quot;&gt;理学療法士・整形クリニック勤務 &lt;span&gt;／ [要確認：経験年数]&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel&quot;&gt;悩み&lt;/span&gt;胸郭の硬さをどう触ればいいか分からず、頚部のリリースだけで終わっていました。&lt;/p&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel gold&quot;&gt;変化&lt;/span&gt;関節の運動軸を意識して手を当てるようになり、&lt;span class=&quot;mark&quot;&gt;翌日の外来で頚部回旋の出方が目に見えて変わりました。&lt;/span&gt;「その場限り」だった結果が、続くようになっています。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;vcard&quot;&gt;
+      &lt;div class=&quot;vmeta&quot;&gt;理学療法士・回復期病棟勤務 &lt;span&gt;／ [要確認：経験年数]&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel&quot;&gt;悩み&lt;/span&gt;「先生がやると動くのに、自分がやると動かない」の理由が分かりませんでした。&lt;/p&gt;
+      &lt;p class=&quot;vbody&quot;&gt;&lt;span class=&quot;vlabel gold&quot;&gt;変化&lt;/span&gt;手を当てる位置と力の抜き方を直接修正してもらえたことで、&lt;span class=&quot;mark&quot;&gt;復習動画を見ながら職場でも同じ操作が再現できる&lt;/span&gt;ようになりました。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ Before / After（ページ最大の山場） ============ --&gt;
+&lt;section class=&quot;sec transform-sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Transformation&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title big&quot;&gt;その手は、&lt;br&gt;明日から&lt;span class=&quot;gold-ink&quot;&gt;別物&lt;/span&gt;になる。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;同じ患者。同じ訴え。&lt;br&gt;変わるのは、あなたの手だけです。&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;緩めても戻る可動域に、&lt;br&gt;次の一手が、打てなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;関節を動かす手順が手に入り、&lt;br&gt;その場の変化が、&lt;b&gt;翌週も続く&lt;/b&gt;。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;頚部だけを診て、&lt;br&gt;胸郭の関与に、気づけなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;頚部から胸郭までを一本で読み、&lt;br&gt;&lt;b&gt;制限の本当の場所&lt;/b&gt;に、手が届く。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;trans&quot;&gt;
+      &lt;div class=&quot;trans-before&quot;&gt;
+        &lt;span class=&quot;tlabel&quot;&gt;これまで&lt;/span&gt;
+        &lt;p&gt;「先生だからできる」技術は、&lt;br&gt;職場に持ち帰ると、再現できなかった。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;trans-arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;↓&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;trans-after&quot;&gt;
+        &lt;span class=&quot;tlabel gold&quot;&gt;この一日のあと&lt;/span&gt;
+        &lt;p&gt;直接修正された手の感覚を、&lt;br&gt;復習動画で&lt;b&gt;「自分の手」&lt;/b&gt;として定着させる。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;trans-close&quot;&gt;「わかった」で終わらない。&lt;br&gt;&lt;span class=&quot;mark&quot;&gt;あなたの手が、変わる。&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 核心（全幅の濃い帯） ============ --&gt;
+&lt;section class=&quot;core-band&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;text-align:center;margin-bottom:24px;&quot;&gt;The Essence&lt;/span&gt;
+    &lt;p class=&quot;core-text&quot;&gt;学ぶのは「赤羽根の技術」ではない。&lt;br&gt;一生、&lt;span class=&quot;gold-ink&quot;&gt;あなたの手で再現できる&lt;/span&gt;&lt;br&gt;関節操作の&lt;strong&gt;原理&lt;/strong&gt;です。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 動画 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Preview&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;筋では、戻る。&lt;br&gt;関節なら、&lt;span class=&quot;gold-ink&quot;&gt;続く&lt;/span&gt;。&lt;/h2&gt;
+      &lt;p class=&quot;sec-sub&quot;&gt;その違いを、言葉ではなく&lt;br&gt;動く可動域で、お見せします。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;video-frame&quot;&gt;
+      &lt;iframe src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ&quot; title=&quot;症例ミニ講義&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot; style=&quot;margin-top:30px;&quot;&gt;緩めても戻っていた可動域が、関節を動かすと&lt;b&gt;その場で変わり、そのまま続く&lt;/b&gt;。本研修で習得するのは、この一手です。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 落とし穴 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;The Pitfall&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;なぜ、改善しないのか。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pit&quot;&gt;
+      &lt;div class=&quot;pit-x&quot;&gt;✕&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;pit-h&quot;&gt;「硬い筋肉を緩めれば、可動域は出る」という思い込み&lt;/p&gt;
+        &lt;p class=&quot;pit-b&quot;&gt;筋を緩めても、関節そのものの運動性が低ければ可動域はすぐ元に戻ります。「緩める」と「動かす」は別の介入。緩めた後に関節を動かす手順がなければ、結果は続きません。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pit&quot;&gt;
+      &lt;div class=&quot;pit-x&quot;&gt;✕&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;pit-h&quot;&gt;「頚部の症状は、頚部を診れば足りる」という決めつけ&lt;/p&gt;
+        &lt;p class=&quot;pit-b&quot;&gt;&lt;span class=&quot;mark&quot;&gt;頚部の可動域は胸椎・胸郭の運動性に規定されている&lt;/span&gt;ため、頚部だけに介入しても変化は限定的。動かすべき場所を見誤ると、努力が結果に結びつきません。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 評価戦略 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Assessment&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;「どこが動かないのか」を&lt;br&gt;絞り込む。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;lead&quot; style=&quot;margin:0 auto 40px;&quot;&gt;&lt;b&gt;結論：&lt;/b&gt;頚部単独で評価を完結させず、頚部→胸椎→胸郭の順に運動性を切り分け、制限の主因を特定します。&lt;/p&gt;
+    &lt;ol class=&quot;steps&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;1&lt;/span&gt;&lt;div&gt;&lt;b&gt;頚部の運動性&lt;/b&gt;　各方向の可動域と、動きの質（どの分節で止まるか）を確認する。&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;2&lt;/span&gt;&lt;div&gt;&lt;b&gt;胸椎の運動性&lt;/b&gt;　頚部の動きを規定する胸椎の伸展・回旋の可動性を評価する。&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;step-n&quot;&gt;3&lt;/span&gt;&lt;div&gt;&lt;b&gt;胸郭の運動性&lt;/b&gt;　肋骨・胸郭の動きが頚胸移行部の可動域に与える影響を切り分ける。&lt;/div&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 症例 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Case Study&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;ケーススタディ&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;case&quot;&gt;
+      &lt;span class=&quot;case-n&quot;&gt;CASE 01&lt;/span&gt;
+      &lt;p class=&quot;case-t&quot;&gt;頚部回旋制限が続く症例（筋アプローチで一時改善も再燃）&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;介入&lt;/span&gt;胸椎回旋の運動性を評価し、関節操作で胸椎の可動性を引き出してから頚部を再評価。&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;結果&lt;/span&gt;[要確認：頚部回旋の改善度・持続]。頚部単独の介入では得られなかった変化が確認できた。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;case&quot;&gt;
+      &lt;span class=&quot;case-n&quot;&gt;CASE 02&lt;/span&gt;
+      &lt;p class=&quot;case-t&quot;&gt;胸郭の硬さを伴う頚部・肩甲帯症状の症例&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;介入&lt;/span&gt;肋骨・胸郭の運動性に対するハンドリングを実施し、頚胸移行部の動きを再構築。&lt;/p&gt;
+      &lt;p class=&quot;case-l&quot;&gt;&lt;span&gt;結果&lt;/span&gt;[要確認：可動域・症状の変化]。胸郭から介入することで頚部の動きが変化した。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 得られること ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;What You Gain&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;この一日で、&lt;br&gt;手に入るもの。&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;gains&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;01&lt;/span&gt;頚部・胸椎・胸郭を一連の連結として捉え、&lt;span class=&quot;mark&quot;&gt;可動域制限の「本当の場所」を見極める評価の視点&lt;/span&gt;。&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;02&lt;/span&gt;筋を緩めるのではなく、&lt;span class=&quot;mark&quot;&gt;関節そのものを動かすハンドリングの手順&lt;/span&gt;を、手の当て方・力の方向まで。&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;gd&quot;&gt;03&lt;/span&gt;当日で終わらせず、&lt;span class=&quot;mark&quot;&gt;復習動画・資料・1ヶ月の質問対応で「自分の手」として定着&lt;/span&gt;させる仕組み。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 受講に含まれるもの（中核＋特典） ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Included&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;この一日が、&lt;br&gt;一生の技術になる理由。&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;core-incl&quot;&gt;
+      &lt;span class=&quot;ci-seal&quot;&gt;本講座の中核&lt;/span&gt;
+      &lt;p class=&quot;ci-title&quot;&gt;赤羽根良和による、12名限定の直接指導&lt;/p&gt;
+      &lt;p class=&quot;ci-body&quot;&gt;あなたの手に直接触れ、力の方向・触知・タイミングをその場で修正する。この体験こそが、本研修の価値の中心です。&lt;span class=&quot;ci-price&quot;&gt;— 値を付けられない価値 —&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;incl-lead&quot;&gt;さらに、当日の技術を&lt;b&gt;「一生使える手」に定着させるための特典&lt;/b&gt;が含まれます。いずれも単体で価値のあるサービスです。&lt;/p&gt;
+
+    &lt;div class=&quot;benefits&quot;&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;復習動画 ＋ 再現性資料 ＋ 当日撮影可&lt;/b&gt;&lt;span&gt;手順を見返し、職場で再現するための教材&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;受講者専用オープンチャット（1ヶ月）&lt;/b&gt;&lt;span&gt;受講後1ヶ月、質問し放題で疑問を解消&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;臨床推論アプリ 3ヶ月サブスク無料&lt;/b&gt;&lt;span&gt;学んだ評価の視点を、日々の臨床で定着&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;関連座学セミナーの事前・事後 期間限定視聴&lt;/b&gt;&lt;span&gt;実技の理解を支える理論を、前後に補強&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val&quot;&gt;[要確認]円 相当&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ben gold-ben&quot;&gt;&lt;div class=&quot;ben-main&quot;&gt;&lt;b&gt;次回開催の優先申込権&lt;/b&gt;&lt;span&gt;埋まりやすい少人数枠を、優先的に確保&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;ben-val gold&quot;&gt;Priceless&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p class=&quot;incl-foot&quot;&gt;対面実技の受講料に加えて、これらすべてが含まれます。&lt;span class=&quot;mark&quot;&gt;付帯特典だけを単体で揃えても相応の費用がかかる&lt;/span&gt;ことを踏まえると、この一日に何が含まれているかが見えてきます（各相当額は確定次第、記載します）。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 価格 ============ --&gt;
+&lt;section class=&quot;sec price-sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;price-card&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;text-align:center;margin-bottom:18px;&quot;&gt;Investment&lt;/span&gt;
+      &lt;p class=&quot;price-lead&quot;&gt;一般的な実技セミナーの、およそ3倍。&lt;br&gt;それでも、これは&lt;span class=&quot;gold-ink&quot;&gt;消費ではなく投資&lt;/span&gt;です。&lt;/p&gt;
+      &lt;div class=&quot;price-figure&quot;&gt;&lt;span class=&quot;yen&quot;&gt;¥&lt;/span&gt;50,000&lt;span class=&quot;tax&quot;&gt;（税込）&lt;/span&gt;&lt;/div&gt;
+      &lt;p class=&quot;price-note&quot;&gt;クレジットカード決済・銀行振込に対応。料金はどちらでも変わりません。&lt;/p&gt;
+      &lt;a class=&quot;cta crim&quot; href=&quot;#apply&quot; style=&quot;margin-top:8px;&quot;&gt;この一日に申し込む&lt;/a&gt;
+      &lt;p class=&quot;cta-note&quot;&gt;定員12名・初心者の方も歓迎します&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ プログラム ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Program&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;当日のプログラム&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;prog-meta&quot;&gt;
+      &lt;span class=&quot;pm&quot;&gt;10:00 – 15:00&lt;/span&gt;
+      &lt;span class=&quot;pm-div&quot;&gt;／&lt;/span&gt;
+      &lt;span class=&quot;pm&quot;&gt;5時間&lt;/span&gt;
+      &lt;span class=&quot;pm-div&quot;&gt;／&lt;/span&gt;
+      &lt;span class=&quot;pm&quot;&gt;小休憩のみ&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;prog-lead&quot;&gt;座学は要点だけ。残りの時間は、&lt;span class=&quot;mark&quot;&gt;ひたすら実技に充てます。&lt;/span&gt;5時間、手を動かし続け、関節操作とハンドリングを&lt;b&gt;身体で覚えきる&lt;/b&gt;一日です。&lt;/p&gt;
+    &lt;ol class=&quot;prog&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;01&lt;/span&gt;&lt;div&gt;&lt;b&gt;導入：関節で動かすという考え方&lt;/b&gt;&lt;span&gt;筋ではなく関節の動きとして可動域を理解する。本研修の前提を、最短で押さえる。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;02&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：制限部位を切り分ける評価&lt;/b&gt;&lt;span&gt;頚部・胸椎・胸郭のどこが可動域を止めているかを、ペアで手を動かしながら絞り込む。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;03&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：関節操作・ハンドリング（中核）&lt;/b&gt;&lt;span&gt;手の当て方・力の方向・タイミングを、講師の直接修正を受けながら反復。可動域が変わる感覚を、手に刻む。最も多くの時間を割く。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pg-n&quot;&gt;04&lt;/span&gt;&lt;div&gt;&lt;b&gt;実技：臨床での再現と個別質疑&lt;/b&gt;&lt;span&gt;職場で再現するためのポイントを一人ずつ確認。できるようになるまで手を止めない。※詳細は確定次第、本ページに掲載します。&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 返金保証を設けない理由 ============ --&gt;
+&lt;section class=&quot;sec&quot; style=&quot;padding-top:24px;&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;honest&quot;&gt;
+      &lt;span class=&quot;honest-seal&quot;&gt;返金保証を設けない理由&lt;/span&gt;
+      &lt;p&gt;本研修には、全額返金保証を設けていません。&lt;strong&gt;復習動画・資料・1ヶ月の質問対応・アプリ・座学視聴まで含み、受講した時点で学習資産が手元に残る設計&lt;/strong&gt;であるため、そして&lt;strong&gt;定員12名の枠を、本気で学ぶ方に確保したい&lt;/strong&gt;ためです。&lt;/p&gt;
+      &lt;p class=&quot;honest-close&quot;&gt;守る必要がないほど、中身に自信がある。&lt;br&gt;その選択であることを、ご理解いただけますと幸いです。&lt;/p&gt;
+      &lt;p class=&quot;honest-note&quot;&gt;※キャンセル・振替の取り扱いは[要確認：キャンセル規定]に従います。お申込み前にご確認ください。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ FAQ ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;FAQ&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;よくある質問&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;faq&quot;&gt;
+      &lt;details&gt;&lt;summary&gt;経験が浅くても受講できますか？&lt;/summary&gt;&lt;div&gt;はい、若手の方も歓迎します。12名限定で講師が一人ひとりの手を直接修正するため、経験年数を問わず「自分の手で動かせる」状態を持ち帰っていただけます。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;受講料が一般的な実技セミナーより高いのはなぜですか？&lt;/summary&gt;&lt;div&gt;30〜50名規模では難しい「講師に手を直接見てもらう時間」を、12名限定で確保しているためです。さらに復習動画・再現性資料・1ヶ月の質問対応・臨床推論アプリ3ヶ月・関連座学の視聴が含まれ、受講後も技術が定着するまで伴走する設計になっています。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;全額返金保証はありますか？&lt;/summary&gt;&lt;div&gt;本研修には全額返金保証を設けていません。復習動画・資料・1ヶ月の質問対応・アプリ・座学視聴まで含み、受講した時点で持ち帰る学習資産が確定する設計のためです。また、定員12名の枠を本気で学びたい方に確保する目的もあり、保証ではなくキャンセルポリシーで運用します（詳細は[要確認：キャンセル規定]）。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;当日学んだ技術を、職場で再現できるか不安です。&lt;/summary&gt;&lt;div&gt;その不安に応えるための設計です。当日の手技は撮影可能で、復習動画と手順を言語化した資料をお渡しします。さらに受講後1ヶ月は専用チャットで質問でき、「その場だけ」で終わらせません。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;支払い方法は何が選べますか？&lt;/summary&gt;&lt;div&gt;クレジットカード決済と銀行振込のどちらにも対応しています。料金はどちらの方法でも変わりません。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;研修は何時間ですか？休憩はありますか？&lt;/summary&gt;&lt;div&gt;10:00〜15:00の5時間です。設けるのは小休憩のみで、座学は要点に絞り、時間のほとんどを実技に充てます。手を動かし続け、関節操作とハンドリングを身体で覚えきる一日です。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;持ち物や服装はありますか？&lt;/summary&gt;&lt;div&gt;実技を伴うため、動きやすい服装でのご参加をおすすめします。詳細な持ち物は[要確認：当日案内]にてご案内します。&lt;/div&gt;&lt;/details&gt;
+      &lt;details&gt;&lt;summary&gt;当日都合がつかなくなった場合はどうなりますか？&lt;/summary&gt;&lt;div&gt;対面実技のため、キャンセル・振替の取り扱いは[要確認：キャンセル規定]に従います。お申込み前にご確認ください。&lt;/div&gt;&lt;/details&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ 講師 ============ --&gt;
+&lt;section class=&quot;sec&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;span class=&quot;eyebrow&quot;&gt;Instructor&lt;/span&gt;
+      &lt;h2 class=&quot;sec-title&quot;&gt;赤羽根 良和&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;instr&quot;&gt;
+      &lt;div class=&quot;instr-photo&quot;&gt;
+        &lt;img src=&quot;data:image/jpeg;base64,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&quot; alt=&quot;赤羽根良和先生&quot; onerror=&quot;this.style.display=&#x27;none&#x27;;this.parentNode.classList.add(&#x27;noimg&#x27;);&quot;&gt;
+        &lt;span class=&quot;instr-initial&quot;&gt;赤&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;instr-role&quot;&gt;さとう整形外科 リハビリテーション科 室長&lt;/p&gt;
+      &lt;p class=&quot;instr-body&quot;&gt;運動器の疼痛に対する評価とアプローチを深く学べる講師として、臨床で結果を出せると高い支持を集める。頚部〜胸椎の可動域、足部・足関節障害、運動連鎖など、徒手と機能解剖に根ざした著書・DVDを多数発表。学会・論文での発信も継続している。&lt;/p&gt;
+      &lt;p class=&quot;instr-stat&quot;&gt;&lt;span class=&quot;mark&quot;&gt;運動器疼痛領域での再受講率 90.4%（2021年）&lt;/span&gt; — 受講者の多くが、繰り返し学びに戻ってくる。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- ============ クロージング ============ --&gt;
+&lt;section class=&quot;closing&quot;&gt;
+  &lt;div class=&quot;wrap reveal&quot;&gt;
+    &lt;span class=&quot;eyebrow&quot; style=&quot;display:block;margin-bottom:28px;&quot;&gt;The Last Word&lt;/span&gt;
+    &lt;p class=&quot;closing-text&quot;&gt;この一日で習得した手は、&lt;br&gt;&lt;span class=&quot;gold-ink&quot;&gt;10年先のあなたの臨床&lt;/span&gt;も支えます。&lt;/p&gt;
+    &lt;div class=&quot;closing-cta&quot;&gt;
+      &lt;a class=&quot;cta&quot; href=&quot;#apply&quot;&gt;今すぐ、この一日に申し込む&lt;/a&gt;
+      &lt;p class=&quot;cta-note&quot;&gt;2026年9月13日（土）10:00–15:00（5時間・実技中心）／ 会場：アンビション貸会議室 ／ 定員12名 ／ 申込締切は[要確認]まで&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;footer class=&quot;foot&quot;&gt;
+  &lt;p class=&quot;foot-title&quot;&gt;頚部・胸郭の可動域を、一生自分の手で。&lt;/p&gt;
+  &lt;p class=&quot;foot-sub&quot;&gt;赤羽根良和 対面実技研修 ／ 一般社団法人セラピストフォーライフ&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;script&gt;
+  // スクロールリビール
+  (function(){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add(&#x27;in&#x27;); io.unobserve(e.target);} });
+    },{threshold:0.18, rootMargin:&quot;0px 0px -8% 0px&quot;});
+    document.querySelectorAll(&#x27;.reveal&#x27;).forEach(function(el){io.observe(el);});
+  })();
+
+  // FV ロード演出はCSSアニメーションで完結（追加スクリプトなし）
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div></div></div></div>
+<script>function setView(m){var cd=document.getElementById('colDesk'),cp=document.getElementById('colPhone');
+document.getElementById('bBoth').classList.toggle('active',m==='both');document.getElementById('bDesk').classList.toggle('active',m==='desk');
+document.getElementById('bPhone').classList.toggle('active',m==='phone');cd.classList.toggle('hidden',m==='phone');cp.classList.toggle('hidden',m==='desk');}</script>
+</body></html>
