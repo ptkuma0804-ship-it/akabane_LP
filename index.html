@@ -364,6 +364,39 @@
   .prog b{display:block; font-family:var(--mincho); color:var(--paper); font-size:1.08rem; margin-bottom:6px; line-height:1.5;}
   .prog span{color:var(--paper-dim); line-height:1.85; font-size:0.95rem;}
 
+  /* ===== 会場・アクセス ===== */
+  .venue-card{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:38px 32px; max-width:620px; margin:0 auto;}
+  .venue-name{font-family:var(--mincho); font-weight:700; color:var(--paper); font-size:clamp(1.2rem,4.6vw,1.5rem);
+    line-height:1.5; letter-spacing:0.03em; text-align:center; margin-bottom:8px;}
+  .venue-addr{font-family:var(--mincho); color:var(--gold-bright); font-size:1.02rem; line-height:1.7;
+    letter-spacing:0.02em; text-align:center; margin-bottom:32px;}
+  .venue-access{list-style:none; max-width:520px; margin:0 auto 28px;}
+  .venue-access li{display:flex; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--line);}
+  .venue-access li:last-child{border-bottom:none;}
+  .va-line{flex:none; font-family:var(--mincho); font-weight:600; color:var(--gold); font-size:0.94rem;
+    line-height:1.6; min-width:7.5em;}
+  .va-min{flex:none; font-family:var(--garamond); font-weight:600; color:var(--gold-bright);
+    font-size:1.15rem; letter-spacing:0.03em; line-height:1.3; margin-left:auto;}
+  .va-station{color:var(--paper); line-height:1.6; font-size:0.98rem;}
+  .va-station span{display:block; color:var(--paper-dim); font-size:0.86rem; margin-top:2px;}
+  .venue-map{text-align:center;}
+  .venue-map a{display:inline-flex; align-items:center; gap:10px; font-family:var(--garamond); font-weight:500;
+    letter-spacing:0.14em; text-transform:uppercase; font-size:0.84rem; color:var(--gold-bright);
+    border:1px solid var(--gold-deep); border-radius:3px; padding:13px 30px; text-decoration:none;
+    background:radial-gradient(ellipse 80% 120% at 50% 0%, rgba(201,162,39,0.08), transparent 70%);
+    transition:border-color .4s ease, color .4s ease;}
+  .venue-map a:hover{border-color:var(--gold); color:var(--gold);}
+  .venue-map .pin{font-size:1rem; line-height:1;}
+  .venue-note{text-align:center; color:var(--paper-dim); font-size:0.84rem; line-height:1.7;
+    margin-top:24px; letter-spacing:0.02em;}
+
+  @media(max-width:560px){
+    .venue-card{padding:32px 22px;}
+    .venue-access li{flex-wrap:wrap; gap:6px 16px;}
+    .va-min{margin-left:0;}
+  }
+
   /* ===== 返金理由 ===== */
   .honest{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
     border-radius:4px; padding:38px 32px; max-width:620px; margin:0 auto; text-align:center;}
@@ -844,6 +877,41 @@
   </div>
 </section>
 
+<!-- ============ 会場・アクセス ============ -->
+<section class="sec" style="padding-top:24px;">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Venue / Access</span>
+      <h2 class="sec-title">会場・アクセス</h2>
+    </div>
+    <div class="venue-card">
+      <p class="venue-name">アンビション貸会議室</p>
+      <p class="venue-addr">〒543-0072　大阪市天王寺区生玉前町5-31</p>
+      <ul class="venue-access">
+        <li>
+          <span class="va-line">Osaka Metro</span>
+          <span class="va-station">谷町線・千日前線「谷町九丁目」駅<span>各出口より</span></span>
+          <span class="va-min">徒歩 5分</span>
+        </li>
+        <li>
+          <span class="va-line">Osaka Metro</span>
+          <span class="va-station">谷町線「四天王寺前夕陽ヶ丘」駅<span>各出口より</span></span>
+          <span class="va-min">徒歩 6分</span>
+        </li>
+        <li>
+          <span class="va-line">近鉄</span>
+          <span class="va-station">奈良線・大阪線「大阪上本町」駅<span>各出口より</span></span>
+          <span class="va-min">徒歩 8分</span>
+        </li>
+      </ul>
+      <div class="venue-map">
+        <a href="https://www.google.co.jp/maps/place/%E3%82%A2%E3%83%B3%E3%83%93%E3%82%B7%E3%83%A7%E3%83%B3%E8%B2%B8%E4%BC%9A%E8%AD%B0%E5%AE%A4/@34.662502,135.515376,17z/data=!4m2!3m1!1s0x6000e75a9ba4ed1b:0x2d82edb3f0764393" target="_blank" rel="noopener"><span class="pin">📍</span>Googleマップで開く</a>
+      </div>
+      <p class="venue-note">大阪市内主要駅から30分以内の好立地です。<br>会場の詳しいご案内は、お申込み後にあらためてご連絡いたします。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 返金保証を設けない理由 ============ -->
 <section class="sec" style="padding-top:24px;">
   <div class="wrap reveal">
@@ -942,7 +1010,7 @@
         <p class="sa-body"><span class="o">決済（入金）が確認できた時点で、お席が確保されます。</span>お申込みだけではお席が確定しない点にご留意ください。定員<span class="sa-strong">12名</span>の少人数制のため、<span class="sa-strong">お早めに決済までお進めいただけますと幸いです。</span></p>
       </div>
       <a class="cta" href="https://therafor.jp/p/r/QMVlQelD" target="_blank" rel="noopener">今すぐ、この一日に申し込む</a>
-      <p class="cta-note">2026年9月13日（土）10:00–15:00（5時間・実技中心）／ 会場：アンビション貸会議室 ／ 定員12名</p>
+      <p class="cta-note">2026年9月13日（土）10:00–15:00（5時間・実技中心）／ 会場：アンビション貸会議室（大阪・上本町）／ 定員12名</p>
     </div>
   </div>
 </section>
