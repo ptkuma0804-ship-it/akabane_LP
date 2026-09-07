@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>頚部・胸郭の可動域を、一生自分の手で｜赤羽根良和 対面実技研修</title>
+<title>頚部・胸郭・体幹の可動域を、一生自分の手で｜赤羽根良和 対面実技研修</title>
 <meta name="description" content="頚部〜胸椎・胸郭の可動域制限を、筋ではなく関節操作とハンドリングで解く対面実技研修。赤羽根良和が定員12名に直接指導。受講後も技術が定着するまで伴走します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,6 +71,8 @@
   .hero-title .ln:nth-child(1) span{animation-delay:.85s;}
   .hero-title .ln:nth-child(2) span{animation-delay:1.0s;}
   .hero-title .ln:nth-child(3) span{animation-delay:1.15s;}
+  .ttl-br{display:none;}
+  @media(max-width:900px){ .ttl-br{display:inline;} }
   .gold-ink{color:var(--gold-bright);
     text-shadow:0 0 24px rgba(232,200,75,0.28);}
   .crim-ink{color:var(--crimson-glow);}
@@ -535,6 +537,24 @@
   .foot-title{font-family:var(--mincho); font-weight:600; color:var(--gold); font-size:1.05rem; line-height:1.7; margin-bottom:10px;}
   .foot-sub{font-size:0.82rem; color:var(--paper-dim); letter-spacing:0.04em;}
 
+
+  /* ===== 触診の予習 ===== */
+  .prep-card{background:linear-gradient(160deg,var(--char2),var(--char)); border:1px solid var(--gold-deep);
+    border-radius:4px; padding:34px 32px; max-width:620px; margin:0 auto;}
+  .prep-group + .prep-group{margin-top:28px; padding-top:26px; border-top:1px solid var(--line);}
+  .prep-h{font-family:var(--mincho); font-weight:700; color:var(--gold-bright); font-size:1.02rem;
+    letter-spacing:0.08em; text-align:center; margin-bottom:18px;}
+  .prep-list{list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
+  .prep-list li{color:var(--paper); font-size:0.95rem; line-height:1.5; letter-spacing:0.02em;
+    border:1px solid var(--line); border-radius:3px; padding:8px 14px;
+    background:rgba(201,162,39,0.05);}
+
+  @media(max-width:560px){
+    .prep-card{padding:28px 18px;}
+    .prep-list{gap:8px;}
+    .prep-list li{font-size:0.9rem; padding:7px 11px;}
+  }
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important; transition:none!important;}
     .reveal{opacity:1!important; transform:none!important;}
@@ -550,7 +570,7 @@
   <span class="eyebrow">Akabane Yoshikazu &mdash; Hands-On Seminar</span>
   <p class="hero-q">筋を緩めても、頚部・胸郭が動かない——<br>その先で、あなたの手は止まっていませんか。</p>
   <h1 class="hero-title">
-    <span class="ln"><span>頚部・胸郭の可動域を、</span></span>
+    <span class="ln"><span>頚部・胸郭・体幹の<br class="ttl-br">可動域を、</span></span>
     <span class="ln"><span>一生 <span class="gold-ink">自分の手</span> で</span></span>
     <span class="ln"><span>出せるようになる。</span></span>
   </h1>
@@ -890,6 +910,49 @@
   </div>
 </section>
 
+<!-- ============ 触診の予習 ============ -->
+<section class="sec" style="padding-top:24px;">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Preparation</span>
+      <h2 class="sec-title">触診の予習について</h2>
+    </div>
+    <p class="prog-lead">当日は、時間のほとんどを実技に充てます。<span class="mark">下記の筋・関節（骨）は、あらかじめ位置と触り方をご確認のうえ</span>お越しください。</p>
+    <div class="prep-card">
+      <div class="prep-group">
+        <p class="prep-h">筋</p>
+        <ul class="prep-list">
+          <li>多裂筋</li>
+          <li>最長筋</li>
+          <li>腸肋筋</li>
+          <li>腰方形筋</li>
+          <li>内腹斜筋／外腹斜筋</li>
+          <li>僧帽筋</li>
+          <li>頭半棘筋</li>
+          <li>斜角筋</li>
+          <li>肩甲挙筋</li>
+          <li>前鋸筋</li>
+          <li>後頭下筋群</li>
+          <li>大胸筋</li>
+          <li>小胸筋</li>
+        </ul>
+      </div>
+      <div class="prep-group">
+        <p class="prep-h">関節・骨</p>
+        <ul class="prep-list">
+          <li>仙腸関節</li>
+          <li>腰仙関節</li>
+          <li>胸腰関節</li>
+          <li>頸胸関節</li>
+          <li>後頭下関節</li>
+          <li>第1肋骨</li>
+          <li>第12肋骨</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 会場・アクセス ============ -->
 <section class="sec" style="padding-top:24px;">
   <div class="wrap reveal">
@@ -1032,7 +1095,7 @@
 </section>
 
 <footer class="foot">
-  <p class="foot-title">頚部・胸郭の可動域を、一生自分の手で。</p>
+  <p class="foot-title">頚部・胸郭・体幹の可動域を、一生自分の手で。</p>
   <p class="foot-sub">赤羽根良和 対面実技研修 ／ 一般社団法人セラピストフォーライフ</p>
 </footer>
 
