@@ -740,12 +740,57 @@
   .tbd-t{font-family:var(--mincho); font-weight:700; color:var(--paper); font-size:1.06rem;
     line-height:1.6; margin-bottom:10px;}
   .tbd-b{color:var(--paper-dim); font-size:0.92rem; line-height:1.9;}
+
+
+  /* ================================================================
+     ▼ B7: 回ごとの差別化 v2（2026-08-28）
+        差し色とローマ数字の透かしだけを足す。**基調（黒×金）は据え置き。**
+        金は「今回」を指す役割のまま触らない（第一回の即日完売という資産を守る）。
+        正本＝DECISIONS.md 2026-08-27 13:30 の却下③「回ごとに基調色を変える案」
+     ================================================================ */
+
+  /* 回ごとの差し色（低彩度の寒色三色。暖色の金と competing しない） */
+  :root{
+    --part-1:#35607A;   /* I   体幹 ― 藍 */
+    --part-2:#3F7A76;   /* II  上肢 ― 青緑 */
+    --part-3:#5C5A8C;   /* III 下肢 ― 菫 */
+  }
+  body[data-part="I"]  {--part:var(--part-1);}
+  body[data-part="II"] {--part:var(--part-2);}
+  body[data-part="III"]{--part:var(--part-3);}
+
+  /* --- ローマ数字の透かし（FVの背面・輪郭線だけ・金の極薄） --- */
+  .hero::before{
+    content:attr(data-numeral);
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-family:var(--garamond); font-weight:600; line-height:1;
+    font-size:min(56vh,42vw); letter-spacing:0.06em;
+    color:transparent; -webkit-text-stroke:1px rgba(201,162,39,0.085);
+    pointer-events:none; user-select:none; z-index:0;
+    opacity:0; animation:fadeIn 2.4s ease 1s forwards;
+  }
+  .hero > *{position:relative; z-index:1;}
+  @media(max-width:480px){
+    .hero::before{font-size:min(40vh,62vw); -webkit-text-stroke-width:0.8px;}
+  }
+
+  /* --- FVの "Part N of 3" をその回の差し色に --- */
+  .hero-series .hs-en{color:var(--part,var(--gold));}
+
+  /* --- シリーズ欄：3行それぞれに自分の色の細い縦罫（三色が一目で並ぶ） --- */
+  .series-item::before{
+    content:""; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    border-radius:0 2px 2px 0; background:var(--si-accent,transparent); opacity:0.9;
+  }
+  .series-item[data-part="I"]  {--si-accent:var(--part-1);}
+  .series-item[data-part="II"] {--si-accent:var(--part-2);}
+  .series-item[data-part="III"]{--si-accent:var(--part-3);}
 </style>
 </head>
-<body>
+<body data-part="II">
 
 <!-- ============ FV ============ -->
-<header class="hero">
+<header class="hero" data-numeral="II">
   <span class="eyebrow">Akabane Yoshikazu &mdash; Hands-On Seminar</span>
   <span class="hero-series"><span class="hs-en">Part 2 of 3</span><span class="hs-div">|</span>全三回シリーズ 第二回「上肢」</span>
   <p class="hero-q">腱板も三角筋も触れている。それでも、<br>挙上の軌道が変わらないとき——</p>
@@ -757,12 +802,12 @@
   <p class="hero-sub">本研修が扱うのは、<b>筋間・筋膜層間の滑走不全</b>に由来する制限です。上肢帯を多関節の運動連鎖として捉え、<b>滑走不全を解除してから、関節適合性を改善する。</b>その順序を、<b>5時間、ひたすら実技</b>で手に覚え込ませる一日。<b>赤羽根良和</b>が、<b>たった12名</b>にだけ直接お伝えします。</p>
 
   <div class="cta-hero">
-    <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、直下のコメント内CTAを有効化して申込URLを入れる
-    <a class="cta crim" href="申込URL" rel="noopener">この一日に申し込む</a> -->
+    <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、直下のコメント内CTAを有効化する（申込URLは記入済み）
+    <a class="cta crim" href="https://therafor.jp/p/r/YYIb0J6R" rel="noopener">この一日に申し込む</a> -->
     <div class="drop-notice">
       <span class="dn-label">一般受付開始</span>
       <span class="dn-date">2026.9.17<span class="dn-day">THU</span><span class="dn-time">20:30</span></span>
-      <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月14日（月）より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
+      <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月13日（日）の開催後より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
     </div>
     <p class="cta-note">
       <span class="cta-date">2026.11.15<span class="cd-day">SUN</span><span class="cd-time">10:00–15:00</span></span>
@@ -794,7 +839,7 @@
     </div>
 
     <div class="series">
-      <div class="series-item">
+      <div class="series-item" data-part="I">
         <span class="si-badge">第一回・即日完売</span>
         <span class="si-n">I</span>
         <div>
@@ -803,7 +848,7 @@
           <p class="si-sub">頚部・胸椎・胸郭の可動域制限を、関節操作とハンドリングで解く一日。<b style="color:var(--paper);">受付開始当日に完売。</b></p>
         </div>
       </div>
-      <div class="series-item now">
+      <div class="series-item now" data-part="II">
         <span class="si-badge">今回 ／ 上肢はこの一日だけ</span>
         <span class="si-n">II</span>
         <div>
@@ -812,7 +857,7 @@
           <p class="si-sub">筋間・筋膜層間の滑走不全を解除し、関節適合性を改善する一日。<b style="color:var(--paper);">前回とは扱う部位も、手技の軸も異なります。</b>上肢を扱うのは、全三回のうちこの回だけです。</p>
         </div>
       </div>
-      <div class="series-item open">
+      <div class="series-item open" data-part="III">
         <!-- 受付開始が決まったら → <span class="si-badge">最終回 ／ 受付中</span> ＋ 下記の si-link を有効化 -->
         <span class="si-badge">最終回 ／ 開催決定</span>
         <span class="si-n">III</span>
@@ -1194,12 +1239,12 @@
         <p class="sa-head"><span class="sa-icon">!</span>お席の確保について、ひとつだけご注意ください</p>
         <p class="sa-body"><span class="o">お申込み後、決済（入金）が確認できた時点で、お席が確保されます。</span>お申込みだけでは、まだお席が確定しない点にご留意ください。定員は<span class="sa-strong">12名</span>と少人数で、<span class="sa-strong">第一回は受付開始の当日に完売しました。</span>決済を完了された方から順にお席が埋まってまいります。お早めに決済までお進めいただけますと幸いです。</p>
       </div>
-      <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、コメント内CTAを有効化して申込URLを入れる
-      <a class="cta crim" href="申込URL" rel="noopener" style="margin-top:8px;">この一日に申し込む</a> -->
+      <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、コメント内CTAを有効化する（申込URLは記入済み）
+      <a class="cta crim" href="https://therafor.jp/p/r/YYIb0J6R" rel="noopener" style="margin-top:8px;">この一日に申し込む</a> -->
       <div class="drop-notice" style="margin-top:8px;">
         <span class="dn-label">一般受付開始</span>
         <span class="dn-date">2026.9.17<span class="dn-day">THU</span><span class="dn-time">20:30</span></span>
-        <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月14日（月）より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
+        <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月13日（日）の開催後より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
       </div>
       <p class="cta-note">定員12名・筋の触診ができる方が対象です</p>
     </div>
@@ -1322,7 +1367,7 @@
       <h2 class="sec-title">よくある質問</h2>
     </div>
     <div class="faq">
-      <details><summary>受付はいつから始まりますか？</summary><div>一般受付は2026年9月17日（木）20:30に開始します。第一回（体幹・9月13日）の受講者の方には、9月14日（月）から16日（水）まで優先受付をご案内します。優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。なお、お席が確保されるのは決済（入金）の確認後です。</div></details>
+      <details><summary>受付はいつから始まりますか？</summary><div>一般受付は2026年9月17日（木）20:30に開始します。第一回（体幹・9月13日）の受講者の方には、開催当日の9月13日（日）から16日（水）まで優先受付をご案内します。優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。なお、お席が確保されるのは決済（入金）の確認後です。</div></details>
       <details><summary>触診に自信がありません。参加できますか？</summary><div>本研修は「筋の触診ができること」を前提とした実技講義です。触診が曖昧なままでは、滑走不全の触知も操作も成立しません。ご参加までに、腱板・三角筋・大胸筋・大円筋・上腕屈筋群・上腕伸筋群・前腕伸筋群（特に短橈側手根伸筋・回外筋）・前腕屈筋群（特に円回内筋・浅指屈筋・尺側手根屈筋）を確実に触り分けられる状態と、起始・停止・走行・層関係の解剖学的理解を済ませてからお越しください。経験年数そのものは問いません。</div></details>
       <details><summary>第一回（体幹）を受講していませんが、参加できますか？</summary><div>はい、問題ありません。各回は単体で完結する構成です。第二回では、上肢を扱うにあたって前提となる考え方から入りますので、今回が初めてのご参加でも支障なく進めていただけます。</div></details>
       <details><summary>前回（第一回・体幹）と内容は重なりますか？</summary><div>扱う部位も、手技の軸も異なります。第一回は体幹（頚部・胸椎・胸郭）に対する関節操作とハンドリング、第二回は上肢に対する筋間の滑走操作と関節適合性の改善です。前回を受講された方にとっても、新しい一日になります。</div></details>
@@ -1372,12 +1417,12 @@
         <p class="sa-head"><span class="sa-icon">!</span>お席の確保について</p>
         <p class="sa-body"><span class="o">決済（入金）が確認できた時点で、お席が確保されます。</span>お申込みだけではお席が確定しない点にご留意ください。定員<span class="sa-strong">12名</span>の少人数制で、<span class="sa-strong">第一回は受付開始の当日に完売しました。</span>お早めに決済までお進めいただけますと幸いです。</p>
       </div>
-      <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、コメント内CTAを有効化して申込URLを入れる
-      <a class="cta" href="申込URL" rel="noopener">今すぐ、この一日に申し込む</a> -->
+      <!-- 受付開始（9/17 20:30）になったら、この予告ブロックを削除し、コメント内CTAを有効化する（申込URLは記入済み）
+      <a class="cta" href="https://therafor.jp/p/r/YYIb0J6R" rel="noopener">今すぐ、この一日に申し込む</a> -->
       <div class="drop-notice">
         <span class="dn-label">一般受付開始</span>
         <span class="dn-date">2026.9.17<span class="dn-day">THU</span><span class="dn-time">20:30</span></span>
-        <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月14日（月）より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
+        <span class="dn-sub"><b>第一回（体幹）の受講者の方には、9月13日（日）の開催後より優先受付をご案内します。</b><br>優先受付で満席となった場合、一般受付はキャンセル待ちのご案内となります。</span>
       </div>
       <p class="cta-note">
         <span class="cta-date">2026年11月15日（日）<span class="cd-time">10:00–15:00</span></span>
